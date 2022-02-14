@@ -27,8 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Teams.unity
     guid: 0e4e1ffd70718af42979c0a3d467fdd3
   - enabled: 1
-    path: Assets/Scenes/ProcGenModifiedGreen.unity
+    path: Assets/Scenes/UsableGameScenes/ProcGenModifiedGreen.unity
     guid: 4e7ea2389313ff540b2dd8d25f5e6591
+  - enabled: 1
+    path: Assets/Scenes/UsableGameScenes/ProcGenModifiedPurple.unity
+    guid: a08250d7c148e5148a13cc9f72dfb75e
+  - enabled: 1
+    path: Assets/Scenes/UsableGameScenes/ProcGenModifiedOrange.unity
+    guid: 838971e6fce51464f9f31ca66f549f15
   - enabled: 1
     path: Assets/Scenes/Menu/Leaderboard.unity
     guid: ae3b14d577da25f4283a66eed864dfc6
