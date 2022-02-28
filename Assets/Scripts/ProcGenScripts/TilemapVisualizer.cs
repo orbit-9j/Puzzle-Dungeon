@@ -9,7 +9,7 @@ public class TilemapVisualizer : MonoBehaviour
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap;
     [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull, 
+    private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, 
         wallInnerCornerDownLeft, wallInnerCornerDownRight, 
         wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
 
@@ -39,9 +39,9 @@ public class TilemapVisualizer : MonoBehaviour
         }
         else if (WallTypesHelper.wallSideLeft.Contains(typeAsInt))
         {
-            tile = wallSiderLeft;
+            tile = wallSideLeft;
         }
-        else if (WallTypesHelper.wallBottm.Contains(typeAsInt))
+        else if (WallTypesHelper.wallBottom.Contains(typeAsInt))
         {
             tile = wallBottom;
         }
@@ -99,7 +99,7 @@ public class TilemapVisualizer : MonoBehaviour
         {
             tile = wallFull;
         }
-        else if (WallTypesHelper.wallBottmEightDirections.Contains(typeASInt))
+        else if (WallTypesHelper.wallBottomEightDirections.Contains(typeASInt))
         {
             tile = wallBottom;
         }

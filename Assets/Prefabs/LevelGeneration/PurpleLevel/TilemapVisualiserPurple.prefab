@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5835188138846062531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5835188138846062541}
+  - component: {fileID: 5835188138846062540}
+  m_Layer: 0
+  m_Name: TilemapVisualiserPurple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5835188138846062541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835188138846062531}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5835188138846062540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835188138846062531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef1c210db2a15144b6c93da1d060da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorTilemap: {fileID: 0}
+  wallTilemap: {fileID: 0}
+  floorTile: {fileID: 11400000, guid: 4b0c4a1a184750e4bbed6d27fa9aaab6, type: 2}
+  wallTop: {fileID: 11400000, guid: 0daacff002b256949a72b53755445a27, type: 2}
+  wallSideRight: {fileID: 11400000, guid: 76bfed48e8aafa8409d73d64b93a16b1, type: 2}
+  wallSiderLeft: {fileID: 11400000, guid: 638e88614ad2bd547b5cdf6f2642ecfd, type: 2}
+  wallBottom: {fileID: 11400000, guid: 0daacff002b256949a72b53755445a27, type: 2}
+  wallFull: {fileID: 11400000, guid: e26b0de3416d870409ad1e92fb46a5e0, type: 2}
+  wallInnerCornerDownLeft: {fileID: 11400000, guid: 924716c588b25894aa11f207ffb0934b, type: 2}
+  wallInnerCornerDownRight: {fileID: 11400000, guid: e22a96646f5f2ef45afb53e77b59ff0e, type: 2}
+  wallDiagonalCornerDownRight: {fileID: 11400000, guid: 44f95c1906cb99d43a2c12b9f8536687, type: 2}
+  wallDiagonalCornerDownLeft: {fileID: 11400000, guid: de23e6387b3c8a14e87255c0c7aef2e4, type: 2}
+  wallDiagonalCornerUpRight: {fileID: 11400000, guid: 76bfed48e8aafa8409d73d64b93a16b1, type: 2}
+  wallDiagonalCornerUpLeft: {fileID: 11400000, guid: 638e88614ad2bd547b5cdf6f2642ecfd, type: 2}

@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
+    public Transform spawn;
+    public GameObject playerPrefab;
+    public CinemachineVirtualCameraBase cam;
+
+    //public Vector2Int roomCenter1 = RoomFirstDungeonGenerator.roomCenter;
+    //private RoomFirstDungeonGenerator RFDG = GameObject.Find("RoomsFirstDungeonGeneratorGreen").GetComponent<RoomsFirstDungeonGenerator>.roomCenter;
+
     public static GameManager instance;
     private void Awake()
     {
@@ -14,35 +22,60 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        //Spawn(RoomFirstDungeonGenerator.CreateRooms().roomCenters[0]);
+        //Spawn(GameObject.Find("RoomsFirstDungeonGeneratorGreen").GetComponent<RoomsFirstDungeonGenerator>.CreateRooms().roomCenters[0]);
+        //Spawn();
+        //Spawn(RoomFirstDungeonGenerator.roomCenter);
+        //Spawn(roomCenter1);
+        //Spawn(RFDG.roomCenter);
+        //SpawnPlayer(Vector2Int.zero);
+        //SpawnPlayer(new Vector2Int(3,3));
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SpawnPlayer(Vector2Int pos) //try to spawn a player in the middle of the first generated room. gives some error when called from the generator script (which wasn't there before, idk what i changed but it was half-working at some point and now it's not)
+    {
+       /*  Vector3 spawnPos = spawn.position;
+        spawnPos.x = pos.x;
+        spawnPos.y = pos.y;
+        GameObject playerObject = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+        cam.Follow = playerObject.transform; */
+
+        //different approach: change the position of an existing object.
+        //IT WORKS DON'T EVEN FUCKING BREATHE IN ITS DIRECTION 
+        GameObject playerObject = GameObject.Find("Player");
+        Vector3 playerObjectPos = playerObject.transform.position;
+        playerObjectPos.x = pos.x;
+        playerObjectPos.y = pos.y;
+        playerObject.transform.position = playerObjectPos;
+        //cam.Follow = playerObject.transform;
+
+        //change camera colour to level colour
+        //spawn character at roomCenters[0];
+    }
+/* 
+    public void SpawnPlayer()
+    {
+        GameObject playerObject = Instantiate(playerPrefab, spawn.position, Quaternion.identity);
+        cam.Follow = playerObject.transform;
+        //change camera colour to level colour
+        //spawn character at roomCenters[0];
+    } */
+
     //resources
     public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    public List<int> weaponPrices;
-    public List<int> expTable;
 
     //references
     public Player player;
-    public FloatingTextManager floatingTextManager;
 
-    //logic
-    public int money;
-    public int exp;
-
-    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
-    {
-        floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
-    }
 
     //save state
     public void SaveState()
     {
         //player skin, money, exp, weapon
         string s = "";
-        s += "0" + "|" + money.ToString() + "|" + exp.ToString() + "|" + "0";
+        s += "0";
 
         PlayerPrefs.SetString("SaveState", s);
         Debug.Log("savestate");
@@ -56,10 +89,7 @@ public class GameManager : MonoBehaviour
         }
         //SceneManager.sceneLoaded -= LoadState;
         string[] data = PlayerPrefs.GetString("SaveState").Split('|');
-        money = int.Parse(data[1]);
-        exp = int.Parse(data[2]);
         
-
-        Debug.Log("loadstate");
+        //Debug.Log("loadstate");
     }
 }

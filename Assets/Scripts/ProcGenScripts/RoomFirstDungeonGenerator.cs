@@ -16,12 +16,14 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
 
+    //public Vector2Int roomCenter = Vector2Int.zero; //added to see if it's possible to get the room centre of the first room, first of all. still working on this
+
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
     }
 
-    private void CreateRooms()
+    public void CreateRooms() //was originally private but i was trying to access the variable inside so i made it public. still doesn't work
     {
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
 
@@ -74,6 +76,15 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         HashSet<Vector2Int> corridors = new HashSet<Vector2Int>();
         var currentRoomCenter = roomCenters[Random.Range(0, roomCenters.Count)];
         roomCenters.Remove(currentRoomCenter);
+
+        //Debug.Log(roomCenters.Count);
+        //roomCenter = roomCenters[0]; //may not even need this assignment, reference directly
+        GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager.SpawnPlayer(roomCenters[0]);//works here but camera doesn't follow
+       
+
+        //Debug.Log(roomCenters[0]);
+
 
         while (roomCenters.Count > 0)
         {
@@ -147,6 +158,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 }
             }
         }
+        
         return floor;
     }
 }

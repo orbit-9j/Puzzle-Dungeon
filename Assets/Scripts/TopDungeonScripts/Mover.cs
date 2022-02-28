@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Mover : Fighter //abstract - can't drag and drop on any object, must be inherited
+public abstract class Mover : MonoBehaviour
 {
     
     protected BoxCollider2D boxCollider;
+    public float pushRecoverySpeed = 0.2f;
+    
+    protected Vector3 pushDirection;
     protected Vector3 moveDelta;
     protected RaycastHit2D hit;
     protected float ySpeed = 5.0f;
