@@ -14,6 +14,8 @@ public abstract class Mover : MonoBehaviour
     protected float ySpeed = 5.0f;
     protected float xSpeed = 5.0f;
 
+    public Animator animator;
+
    protected virtual void Start()
    {
        boxCollider = GetComponent<BoxCollider2D>();
@@ -25,15 +27,24 @@ public abstract class Mover : MonoBehaviour
        moveDelta = new Vector3(input.x * xSpeed, input.y * ySpeed, 0);
 
        //swap sprite direction
-       if(moveDelta.x > 0)
+       if(moveDelta.x > 0 | moveDelta.y != 0)
        {
            //transform.localScale = new Vector3(1,1,1);
            transform.localScale = Vector3.one;//saves memory
+
+           animator.SetFloat("Speed", 1.0f);
+           //need to figure out to swap animation direction
        }
-       else if (moveDelta.x < 0)
+       else if (moveDelta.x < 0 | moveDelta.y != 0)
        {
            transform.localScale = new Vector3(-1,1,1);
+           animator.SetFloat("Speed", 1.0f);
        }
+       else
+       {
+           animator.SetFloat("Speed", 0.0f);
+       }
+
 
         moveDelta += pushDirection;
         pushDirection = Vector3.Lerp(pushDirection, Vector3.zero, pushRecoverySpeed);

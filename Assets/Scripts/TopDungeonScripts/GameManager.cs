@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public Transform spawn;
     public GameObject playerPrefab;
+    //public GameObject portal;
     public CinemachineVirtualCameraBase cam;
 
     //public Vector2Int roomCenter1 = RoomFirstDungeonGenerator.roomCenter;
@@ -61,6 +62,14 @@ public class GameManager : MonoBehaviour
         cam.Follow = playerObject.transform;
         //change camera colour to level colour
         //spawn character at roomCenters[0];
+    } */
+
+  /*   public void SpawnPortal(Vector2Int pos){
+        GameObject portalObject = GameObject.Find("Portal");
+        Vector3 portalObjectPos = portalObject.transform.position;
+        portalObjectPos.x = pos.x;
+        portalObjectPos.y = pos.y;
+        portalObject.transform.position = portalObjectPos;
     } */
 
     //resources

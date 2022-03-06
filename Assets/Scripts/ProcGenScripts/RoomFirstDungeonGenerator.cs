@@ -15,6 +15,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private int offset = 1;
     [SerializeField]
     private bool randomWalkRooms = false;
+    public GameObject portal;
 
     //public Vector2Int roomCenter = Vector2Int.zero; //added to see if it's possible to get the room centre of the first room, first of all. still working on this
 
@@ -81,6 +82,15 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         //roomCenter = roomCenters[0]; //may not even need this assignment, reference directly
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         gameManager.SpawnPlayer(roomCenters[0]);//works here but camera doesn't follow
+        //gameManager.SpawnPortal(roomCenters[roomCenters.Count-1]);
+        //use instantiate
+        //declare portal (colour) in the GUI
+        
+        Vector2Int pos = roomCenters[roomCenters.Count-1];
+        Vector3 portalObjectPos = portal.transform.position;
+        portalObjectPos.x = pos.x;
+        portalObjectPos.y = pos.y;
+        portal.transform.position = portalObjectPos;
        
 
         //Debug.Log(roomCenters[0]);

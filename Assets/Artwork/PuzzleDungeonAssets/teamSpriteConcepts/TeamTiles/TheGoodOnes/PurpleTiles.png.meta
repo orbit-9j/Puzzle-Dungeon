@@ -2068,10 +2068,10 @@ TextureImporter:
       name: PurpleTiles_81
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 28
+        y: 16
+        width: 40
+        height: 35
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
