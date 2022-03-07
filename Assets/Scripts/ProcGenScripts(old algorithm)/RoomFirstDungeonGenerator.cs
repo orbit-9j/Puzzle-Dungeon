@@ -17,8 +17,6 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private bool randomWalkRooms = false;
     public GameObject portal;
 
-    //public Vector2Int roomCenter = Vector2Int.zero; //added to see if it's possible to get the room centre of the first room, first of all. still working on this
-
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -78,23 +76,18 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         var currentRoomCenter = roomCenters[Random.Range(0, roomCenters.Count)];
         roomCenters.Remove(currentRoomCenter);
 
-        //Debug.Log(roomCenters.Count);
-        //roomCenter = roomCenters[0]; //may not even need this assignment, reference directly
+        //move the player to the middle of the first generated room - transform instead of instantiate because otherwise there are issues
         GameManager gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        gameManager.SpawnPlayer(roomCenters[0]);//works here but camera doesn't follow
-        //gameManager.SpawnPortal(roomCenters[roomCenters.Count-1]);
-        //use instantiate
-        //declare portal (colour) in the GUI
+        gameManager.SpawnPlayer(roomCenters[0]);
         
+        //move the exit portal to the last room
         Vector2Int pos = roomCenters[roomCenters.Count-1];
         Vector3 portalObjectPos = portal.transform.position;
         portalObjectPos.x = pos.x;
         portalObjectPos.y = pos.y;
         portal.transform.position = portalObjectPos;
        
-
-        //Debug.Log(roomCenters[0]);
-
+        //Debug.Log(roomCenters[0]); //check it's working
 
         while (roomCenters.Count > 0)
         {

@@ -8,11 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public Transform spawn;
     public GameObject playerPrefab;
-    //public GameObject portal;
-    public CinemachineVirtualCameraBase cam;
 
-    //public Vector2Int roomCenter1 = RoomFirstDungeonGenerator.roomCenter;
-    //private RoomFirstDungeonGenerator RFDG = GameObject.Find("RoomsFirstDungeonGeneratorGreen").GetComponent<RoomsFirstDungeonGenerator>.roomCenter;
+    public CinemachineVirtualCameraBase cam;
 
     public static GameManager instance;
     private void Awake()
@@ -23,20 +20,15 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
-        //Spawn(RoomFirstDungeonGenerator.CreateRooms().roomCenters[0]);
-        //Spawn(GameObject.Find("RoomsFirstDungeonGeneratorGreen").GetComponent<RoomsFirstDungeonGenerator>.CreateRooms().roomCenters[0]);
-        //Spawn();
-        //Spawn(RoomFirstDungeonGenerator.roomCenter);
-        //Spawn(roomCenter1);
-        //Spawn(RFDG.roomCenter);
         //SpawnPlayer(Vector2Int.zero);
         //SpawnPlayer(new Vector2Int(3,3));
         SceneManager.sceneLoaded += LoadState;
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SpawnPlayer(Vector2Int pos) //try to spawn a player in the middle of the first generated room. gives some error when called from the generator script (which wasn't there before, idk what i changed but it was half-working at some point and now it's not)
+    public void SpawnPlayer(Vector2Int pos) 
     {
+        //try to spawn a player in the middle of the first generated room. gives some error when called from the generator script (which wasn't there before, idk what i changed but it was half-working at some point and now it's not)
        /*  Vector3 spawnPos = spawn.position;
         spawnPos.x = pos.x;
         spawnPos.y = pos.y;
@@ -44,24 +36,26 @@ public class GameManager : MonoBehaviour
         cam.Follow = playerObject.transform; */
 
         //different approach: change the position of an existing object.
-        //IT WORKS DON'T EVEN FUCKING BREATHE IN ITS DIRECTION 
         GameObject playerObject = GameObject.Find("Player");
         Vector3 playerObjectPos = playerObject.transform.position;
         playerObjectPos.x = pos.x;
         playerObjectPos.y = pos.y;
         playerObject.transform.position = playerObjectPos;
-        //cam.Follow = playerObject.transform;
+    }
 
-        //change camera colour to level colour
-        //spawn character at roomCenters[0];
+    public void SpawnPlayer() //try to spawn a player in the middle of the first generated room. gives some error when called from the generator script (which wasn't there before, idk what i changed but it was half-working at some point and now it's not)
+    {
+        Vector3 spawnPos = spawn.position;
+        spawnPos.x = Vector2Int.zero.x;
+        spawnPos.y = Vector2Int.zero.y;
+        GameObject playerObject = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
+        cam.Follow = playerObject.transform;
     }
 /* 
     public void SpawnPlayer()
     {
         GameObject playerObject = Instantiate(playerPrefab, spawn.position, Quaternion.identity);
         cam.Follow = playerObject.transform;
-        //change camera colour to level colour
-        //spawn character at roomCenters[0];
     } */
 
   /*   public void SpawnPortal(Vector2Int pos){

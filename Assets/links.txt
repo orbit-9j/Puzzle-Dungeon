@@ -1,0 +1,9 @@
+a list or resources/credits for future reference
+
+original version of procedural generation:
+following the multi-part tutorial found at https://www.youtube.com/watch?v=-QOCX6SVFsk
+sample code found at https://github.com/SunnyValleyStudio/Unity_2D_Proecdural_Dungoen_Tutorial  
+
+Binding Of Isaac version of procedural generation:
+following the 3-part tutorial found at  https://www.youtube.com/watch?v=qAf9axsyijY
+sample code found at https://github.com/BlackthornProd/Random-Dungeon-Generation/tree/master/IsaacGenTut/Assets/Scripts  
