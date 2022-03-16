@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
 
+    public int id;
     public Sprite doorOpen;
     public Sprite doorClosed;
     void Start()
@@ -14,14 +15,20 @@ public class DoorController : MonoBehaviour
         GameEvents.current.onDoorExit += onDoorClose;
     }
 
-    private void onDoorOpen(){
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().sprite = doorOpen;
+    private void onDoorOpen(int id){
+        if (id == this.id){
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().sprite = doorOpen;
+        }
+        
     }
 
-    private void onDoorClose(){
-        GetComponent<BoxCollider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().sprite = doorClosed;
+    private void onDoorClose(int id){
+        if (id == this.id){
+            GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<SpriteRenderer>().sprite = doorClosed;
+        }
+        
     }
 
     private void onDestroy(){

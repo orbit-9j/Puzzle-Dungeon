@@ -25,3 +25,6 @@ https://www.youtube.com/watch?v=G5YmvWdW9oo
 
 tutorial for game events (what we use to make puzzles):
 https://www.youtube.com/watch?v=gx0Lt4tCDE0 
+
+more game event stuff (delegates):
+https://www.youtube.com/watch?v=UWMmib1RYFE 

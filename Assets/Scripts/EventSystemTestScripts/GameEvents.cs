@@ -12,21 +12,27 @@ public class GameEvents : MonoBehaviour
         current = this;
     }
 
-    public event Action onDoorEnter;
-    public void DoorEnter()
+    public event Action<int> onDoorEnter;
+    public void DoorEnter(int id)
     {
-        if (onDoorEnter != null)
+        onDoorEnter?.Invoke(id);
+        //shorthand for:        
+       /*  if (onDoorEnter != null)
         {
             onDoorEnter();
-        }
+        } */
     }
 
-    public event Action onDoorExit;
-    public void DoorExit()
+    public event Action<int> onDoorExit;
+    public void DoorExit(int id)
     {
-        if (onDoorExit != null)
-        {
-            onDoorExit();
-        }
+        onDoorExit?.Invoke(id);
     }
+
+    public event Action onFlagCapture;
+    public void FlagCapture()
+    {
+        onFlagCapture?.Invoke();
+    }
+
 }

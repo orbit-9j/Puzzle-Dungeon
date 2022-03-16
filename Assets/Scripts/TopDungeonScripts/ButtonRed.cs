@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//it doesn't pop back up 
-//honestly you could probably do it with an animator but i cba lol
 
 
 public class ButtonRed : Collidable
