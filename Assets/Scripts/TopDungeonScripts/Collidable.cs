@@ -30,6 +30,7 @@ public class Collidable : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D coll)
     {
-        Debug.Log("beep" + this.name);
+        //Debug.Log("beep" + this.name);
+        
     }
 }

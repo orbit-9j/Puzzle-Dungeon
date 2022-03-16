@@ -7,3 +7,21 @@ sample code found at https://github.com/SunnyValleyStudio/Unity_2D_Proecdural_Du
 Binding Of Isaac version of procedural generation:
 following the 3-part tutorial found at  https://www.youtube.com/watch?v=qAf9axsyijY
 sample code found at https://github.com/BlackthornProd/Random-Dungeon-Generation/tree/master/IsaacGenTut/Assets/Scripts  
+
+game manager, player movement, collidable objects, and other Unity 2D basics:
+https://www.youtube.com/watch?v=b8YUfee_pzc 
+
+using tilemaps:
+https://www.youtube.com/watch?v=ryISV_nH8qw
+
+minimap:
+https://www.youtube.com/watch?v=kWhOMJMihC0 
+
+player animation:
+https://www.youtube.com/watch?v=hkaysu1Z-N8
+
+cinemachine camera:
+https://www.youtube.com/watch?v=G5YmvWdW9oo
+
+tutorial for game events (what we use to make puzzles):
+https://www.youtube.com/watch?v=gx0Lt4tCDE0 

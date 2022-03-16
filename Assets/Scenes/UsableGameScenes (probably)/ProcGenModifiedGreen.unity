@@ -161,6 +161,7 @@ MonoBehaviour:
   dungeonHeight: 30
   offset: 1
   randomWalkRooms: 1
+  portal: {fileID: 0}
 --- !u!4 &309510452
 Transform:
   m_ObjectHideFlags: 0
@@ -503,6 +504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1025701322355928822, guid: 3bd05e0655cc7474796edaf8193b9d4d, type: 3}
+      propertyPath: m_Simulated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd05e0655cc7474796edaf8193b9d4d, type: 3}
 --- !u!114 &1087767832 stripped
@@ -604,7 +609,7 @@ MonoBehaviour:
   floorTile: {fileID: 11400000, guid: 3f1cf4b5ac9a50d41858082637bb935c, type: 2}
   wallTop: {fileID: 11400000, guid: 1ec39069250a13c4b8e31f443bf09ddf, type: 2}
   wallSideRight: {fileID: 11400000, guid: 0167c63dd40f3b74283eb0e242c9021d, type: 2}
-  wallSiderLeft: {fileID: 11400000, guid: 2e4bd1b7dff8b2f46ae960c77eebc56d, type: 2}
+  wallSideLeft: {fileID: 0}
   wallBottom: {fileID: 11400000, guid: 1ec39069250a13c4b8e31f443bf09ddf, type: 2}
   wallFull: {fileID: 11400000, guid: 833c4645d6c172f488eab8fae98e8a0b, type: 2}
   wallInnerCornerDownLeft: {fileID: 11400000, guid: 5bbd481bbc9a7dd4ebf283fca64c2875, type: 2}

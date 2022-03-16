@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RoomTemplates : MonoBehaviour
 {
     public GameObject[] bottomRooms;
@@ -14,7 +15,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] leftRooms; */
     
 
-    public GameObject closedRoom;
+    public GameObject closedWall;
 
     public List<GameObject> rooms;
 

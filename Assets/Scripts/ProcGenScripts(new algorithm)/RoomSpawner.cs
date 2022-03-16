@@ -54,7 +54,7 @@ public class RoomSpawner : MonoBehaviour
         if (other.CompareTag("RoomSpawn") /* && other.GetComponent<RoomSpawner>().spawned == true */)
         {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false){
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Instantiate(templates.closedWall, transform.position, Quaternion.identity);
                 //a room has already been instantiated at this position
             Destroy(gameObject); //don't spawn another room on top of it
             }
