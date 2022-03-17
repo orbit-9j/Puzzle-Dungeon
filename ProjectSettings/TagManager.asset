@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fighter
   - RoomSpawn
+  - Crate
   layers:
   - Default
   - TransparentFX
