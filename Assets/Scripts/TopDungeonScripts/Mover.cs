@@ -51,14 +51,14 @@ public abstract class Mover : MonoBehaviour
 
 
         //cast a box to check if can move in this direction
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Dude", "Blocking"));
+        hit = Physics2D.BoxCast(((Vector2)transform.position + (Vector2)boxCollider.offset), boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Dude", "Blocking"));
         if (hit.collider==null)
         {
             //movement
             transform.Translate(0, moveDelta.y * Time.deltaTime, 0); //scales for machine's performance
         }
 
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(moveDelta.x * Time.deltaTime), LayerMask.GetMask("Dude", "Blocking"));
+        hit = Physics2D.BoxCast(((Vector2)transform.position + (Vector2)boxCollider.offset), boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(moveDelta.x * Time.deltaTime), LayerMask.GetMask("Dude", "Blocking"));
         if (hit.collider==null)
         {
             //movement
