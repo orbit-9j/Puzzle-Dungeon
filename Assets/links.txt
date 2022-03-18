@@ -23,8 +23,19 @@ https://www.youtube.com/watch?v=hkaysu1Z-N8
 cinemachine camera:
 https://www.youtube.com/watch?v=G5YmvWdW9oo
 
+----------------------------------- i prefer the other method, below this-----------------------------------
 tutorial for game events (what we use to make puzzles):
 https://www.youtube.com/watch?v=gx0Lt4tCDE0 
 
 more game event stuff (delegates):
 https://www.youtube.com/watch?v=UWMmib1RYFE 
+---------------------------------------------------------------------------------------------------------
+
+making a puzzle - the easier way
+https://www.youtube.com/watch?v=cLzG1HDcM4s
+
+grabbing crate: (innecessarily complex imo but some of it is useful)
+https://www.youtube.com/watch?v=1uq43EIzo-U
+
+ice particles
+https://www.youtube.com/watch?v=jZYxls-TOZ8
