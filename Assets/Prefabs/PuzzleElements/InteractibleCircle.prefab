@@ -49,6 +49,9 @@ MonoBehaviour:
   action:
     m_PersistentCalls:
       m_Calls: []
+  onLeaveAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &1901573724916459738
 CircleCollider2D:
   m_ObjectHideFlags: 0

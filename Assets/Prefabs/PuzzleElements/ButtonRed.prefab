@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1912532680051385120}
   - component: {fileID: 1912532680051385123}
   - component: {fileID: 1912532680051385122}
+  - component: {fileID: -5700231657599327491}
+  - component: {fileID: 1313199017335054471}
   m_Layer: 0
   m_Name: ButtonRed
   m_TagString: Untagged
@@ -123,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c32c89bbf28f3b4c9f957f2309e29e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -139,6 +143,57 @@ MonoBehaviour:
     maxNormalAngle: 0
   buttonOn: {fileID: 1905810052831205474, guid: f009de04906173c4897a4bcc29e40273, type: 3}
   buttonOff: {fileID: 6043863646197620369, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+--- !u!114 &-5700231657599327491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912532680051385132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: f12c37125e489ab488cdf8b05dc6b099
+  hasSpawned: 0
+--- !u!114 &1313199017335054471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912532680051385132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1001 &1912532680028757725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +201,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1912532680051385133}
     m_Modifications:
+    - target: {fileID: 30259495278164320, guid: fdf369108993c7f43b4e9f3e925abccd, type: 3}
+      propertyPath: clientAuthority
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1278867106282399681, guid: fdf369108993c7f43b4e9f3e925abccd, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -205,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 1278867106282399681, guid: fdf369108993c7f43b4e9f3e925abccd, type: 3}
       propertyPath: counterAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150675867514502223, guid: fdf369108993c7f43b4e9f3e925abccd, type: 3}
+      propertyPath: m_AssetId
+      value: f12c37125e489ab488cdf8b05dc6b099
       objectReference: {fileID: 0}
     - target: {fileID: 3346424724003351731, guid: fdf369108993c7f43b4e9f3e925abccd, type: 3}
       propertyPath: m_Size.x

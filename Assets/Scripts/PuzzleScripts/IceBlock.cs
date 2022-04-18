@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IceBlock : Collidable
+using Mirror;
+
+public class IceBlock : NetworkBehaviour
 {
     private ParticleSystem particles;
     private SpriteRenderer sr;
@@ -14,12 +16,9 @@ public class IceBlock : Collidable
         sr = GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
     }
-    protected override void OnCollide(Collider2D coll)
+    public void BreakIce()
    {
-        if (coll.name == "Player")
-        {
-            StartCoroutine(Break());
-        }
+        StartCoroutine(Break());
    }
 
    private IEnumerator Break()

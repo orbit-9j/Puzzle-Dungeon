@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collidable : MonoBehaviour
+using Mirror;
+
+public class Collidable : NetworkBehaviour
 {
     public ContactFilter2D filter;
     private BoxCollider2D boxCollider;

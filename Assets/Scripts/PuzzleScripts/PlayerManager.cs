@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+using Mirror;
+
+public class PlayerManager : NetworkBehaviour
 {
     public int redFlagCount;
     public int purpleFlagCount;

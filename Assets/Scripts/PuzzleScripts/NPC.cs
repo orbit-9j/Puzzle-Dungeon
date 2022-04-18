@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+using Mirror; 
+
+public class NPC : NetworkBehaviour
 {
     public bool item = false;
     public bool itemGiven = false;
-    public void ExchangeItem(GameObject player){
+    public void ExchangeItem(){
+        GameObject player = NetworkClient.localPlayer.gameObject;
+        //GameObject player = GameObject.Find("Player");
         PlayerManager manager = player.GetComponent<PlayerManager>();
         if (item == false && manager.item == false){
             Debug.Log("I need an item!");
@@ -22,13 +26,16 @@ public class NPC : MonoBehaviour
         //Debug.Log
     }
 
-    public void GiveOrangeFlag(GameObject player)
+    public void GiveOrangeFlag()
     {
-        ExchangeItem(player);
+        ExchangeItem();
         if (itemGiven)
         {
+            GameObject player = NetworkClient.localPlayer.gameObject;
+            //GameObject player = GameObject.Find("Player");
             PlayerManager manager = player.GetComponent<PlayerManager>();
             manager.PickupOrangeFlag();
+            itemGiven = false;
             Debug.Log("Orange FLag!");
         }
     }

@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Totem : MonoBehaviour
+using Mirror;
+
+public class Totem : NetworkBehaviour
 {
     public bool hasFlag = false;
     public GameObject flagSprite;
 
-    public void EquipFlag(GameObject player)
+    public void EquipFlag()
     {
+        GameObject player = NetworkClient.localPlayer.gameObject;
         GameObject totemManager = GameObject.Find("TotemManager"); //change to totem manager
         
         if (!hasFlag)

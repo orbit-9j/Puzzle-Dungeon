@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1100483837589906585}
   - component: {fileID: 1100483837589906582}
   - component: {fileID: 1100483837589906587}
+  - component: {fileID: -325272269108983664}
+  - component: {fileID: 1187678018490905961}
   m_Layer: 3
   m_Name: Lever
   m_TagString: Untagged
@@ -97,8 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26014ad7443d614e9266277499b1462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leverOn: {fileID: 755067666696140266, guid: f009de04906173c4897a4bcc29e40273, type: 3}
-  leverOff: {fileID: -4892785348187417281, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+  syncMode: 0
+  syncInterval: 0.1
+  leverLeft: {fileID: 755067666696140266, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+  leverRight: {fileID: -4892785348187417281, guid: f009de04906173c4897a4bcc29e40273, type: 3}
 --- !u!61 &1100483837589906587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125,6 +129,57 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78345037, y: 0.31570268}
   m_EdgeRadius: 0
+--- !u!114 &-325272269108983664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100483837589906583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: aa2dc200f7ceb284b8a9c434505cc5c7
+  hasSpawned: 0
+--- !u!114 &1187678018490905961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100483837589906583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1001 &1100483837538883468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +187,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1100483837589906584}
     m_Modifications:
+    - target: {fileID: -3683399589999170307, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
+      propertyPath: m_AssetId
+      value: aa2dc200f7ceb284b8a9c434505cc5c7
+      objectReference: {fileID: 0}
     - target: {fileID: 883074122496155103, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: interactKey
       value: 101
@@ -219,6 +278,10 @@ PrefabInstance:
     - target: {fileID: 1901573724916459738, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: m_Offset.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923429985039679408, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
+      propertyPath: clientAuthority
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6828552676695161497, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: m_Name

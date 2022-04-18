@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TotemManager : MonoBehaviour
+using Mirror;
+
+public class TotemManager : NetworkBehaviour
 {
     public bool redTotem = false;
     public bool purpleTotem = false;

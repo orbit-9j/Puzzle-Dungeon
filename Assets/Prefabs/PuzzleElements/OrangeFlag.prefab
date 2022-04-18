@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5658268697990011455}
   - component: {fileID: 5658268697990011452}
   - component: {fileID: 5658268697990011453}
+  - component: {fileID: -6269487358440256482}
+  - component: {fileID: 4960818031037373266}
   m_Layer: 3
   m_Name: OrangeFlag
   m_TagString: Untagged
@@ -123,6 +125,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98c026a763b98743ad9d72dcaa8deb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &-6269487358440256482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658268697990011451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2ab504e4ea3e7284f853e2aaf038f5d8
+  hasSpawned: 0
+--- !u!114 &4960818031037373266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5658268697990011451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1001 &5658268696459120684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5658268697990011450}
     m_Modifications:
+    - target: {fileID: -3683399589999170307, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
+      propertyPath: m_AssetId
+      value: 2ab504e4ea3e7284f853e2aaf038f5d8
+      objectReference: {fileID: 0}
     - target: {fileID: 883074122496155103, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: interactKey
       value: 101
@@ -241,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 1901573724916459738, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: m_Offset.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923429985039679408, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
+      propertyPath: clientAuthority
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6828552676695161497, guid: 35c6a268065952f498f7ba684cf37410, type: 3}
       propertyPath: m_Name

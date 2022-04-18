@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitDoor : MonoBehaviour
-{
+using Mirror;
+
+public class ExitDoor : NetworkBehaviour
+{ 
     public Sprite doorOpen;
     public Sprite doorClosed;
     /* public bool open = false; */

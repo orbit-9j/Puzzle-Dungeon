@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CratePickup : MonoBehaviour
+using Mirror; 
+
+public class CratePickup : NetworkBehaviour
 {
     /* private bool holding = false; */
     private Transform BoxHolder;
