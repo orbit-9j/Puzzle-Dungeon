@@ -11,37 +11,46 @@ public class PlayerManager : NetworkBehaviour
     public int greenFlagCount;
     public int orangeFlagCount;
 
-    /* public string item; */
-    public bool item = false;
+    public bool heldItem = false;
 
-    public void PickupFlag(GameObject obj){
-        if (obj.name == "RedFlag"){
+    public void PickupFlag(GameObject obj)
+    {
+        if (obj.name == "RedFlag")
+        {
             redFlagCount++;
         }
-        else if (obj.name == "PurpleFlag"){
+        else if (obj.name == "PurpleFlag")
+        {
             purpleFlagCount++;
         }
-        else if (obj.name == "GreenFlag"){
+        else if (obj.name == "GreenFlag")
+        {
             greenFlagCount++;
         }
-        else if (obj.name == "OrangeFlag"){
+        else if (obj.name == "OrangeFlag")
+        {
             orangeFlagCount++;
         }
     }
 
-    
-    public void UseFlag(GameObject obj){
+
+    public void UseFlag(GameObject obj)
+    {
         //the flag count is actually checked in the totem script to get it to work properly, but i do it here too in case they will be used in a different script
-        if (obj.name == "RedFlag" && redFlagCount > 0){
+        if (obj.name == "RedFlag" && redFlagCount > 0)
+        {
             redFlagCount--;
         }
-        else if (obj.name == "PurpleFlag" && purpleFlagCount > 0){
+        else if (obj.name == "PurpleFlag" && purpleFlagCount > 0)
+        {
             purpleFlagCount--;
         }
-        else if (obj.name == "GreenFlag" && greenFlagCount > 0){
+        else if (obj.name == "GreenFlag" && greenFlagCount > 0)
+        {
             greenFlagCount--;
         }
-        else if (obj.name == "OrangeFlag" && orangeFlagCount > 0){
+        else if (obj.name == "OrangeFlag" && orangeFlagCount > 0)
+        {
             orangeFlagCount--;
         }
     }
@@ -49,14 +58,14 @@ public class PlayerManager : NetworkBehaviour
 
     public void PickupItem()
     {
-        item = true;
+        heldItem = true;
     }
 
     /* ----------------old------------------ */
     public void PickupRedFlag()
     {
         if (redFlagCount > 0)
-        redFlagCount++;
+            redFlagCount++;
     }
 
     public void PickupPurpleFlag()

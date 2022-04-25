@@ -8,46 +8,51 @@ public class Totem : NetworkBehaviour
 {
     public bool hasFlag = false;
     public GameObject flagSprite;
+    protected TotemManager totemManager;
 
     public void EquipFlag()
     {
         GameObject player = NetworkClient.localPlayer.gameObject;
-        GameObject totemManager = GameObject.Find("TotemManager"); //change to totem manager
-        
+        totemManager = GameObject.Find("TotemManager").GetComponent<TotemManager>();
+
         if (!hasFlag)
         {
             PlayerManager manager = player.GetComponent<PlayerManager>();
-            if(manager)
+            if (manager)
             {
-                if (flagSprite.name == "PurpleFlag" && manager.purpleFlagCount > 0){
+                if (flagSprite.name == "PurpleFlag" && manager.purpleFlagCount > 0)
+                {
                     hasFlag = true;
                     manager.UseFlag(flagSprite);
                     flagSprite.SetActive(true);
-                    totemManager.GetComponent<TotemManager>().purpleTotem = true;
+                    totemManager.purpleTotem = true;
                 }
 
-                else if (flagSprite.name == "RedFlag" && manager.redFlagCount > 0){
+                else if (flagSprite.name == "RedFlag" && manager.redFlagCount > 0)
+                {
                     hasFlag = true;
                     manager.UseFlag(flagSprite);
                     flagSprite.SetActive(true);
-                    totemManager.GetComponent<TotemManager>().redTotem = true;
-                }
-                
-                else if (flagSprite.name == "OrangeFlag" && manager.orangeFlagCount > 0){
-                    hasFlag = true;
-                    manager.UseFlag(flagSprite);
-                    flagSprite.SetActive(true);
-                    totemManager.GetComponent<TotemManager>().orangeTotem = true;
+                    totemManager.redTotem = true;
                 }
 
-                else if (flagSprite.name == "GreenFlag" && manager.greenFlagCount > 0){
+                else if (flagSprite.name == "OrangeFlag" && manager.orangeFlagCount > 0)
+                {
                     hasFlag = true;
                     manager.UseFlag(flagSprite);
                     flagSprite.SetActive(true);
-                    totemManager.GetComponent<TotemManager>().greenTotem = true;
+                    totemManager.orangeTotem = true;
+                }
+
+                else if (flagSprite.name == "GreenFlag" && manager.greenFlagCount > 0)
+                {
+                    hasFlag = true;
+                    manager.UseFlag(flagSprite);
+                    flagSprite.SetActive(true);
+                    totemManager.greenTotem = true;
                 }
             }
         }
-        
+
     }
 }

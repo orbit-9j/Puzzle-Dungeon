@@ -12,11 +12,11 @@ public class NPC : NetworkBehaviour
         GameObject player = NetworkClient.localPlayer.gameObject;
         //GameObject player = GameObject.Find("Player");
         PlayerManager manager = player.GetComponent<PlayerManager>();
-        if (item == false && manager.item == false){
+        if (item == false && manager.heldItem == false){
             Debug.Log("I need an item!");
         }
-        else if (item == false && manager.item == true){
-            manager.item = false;
+        else if (item == false && manager.heldItem == true){
+            manager.heldItem = false;
             itemGiven = true;
             Debug.Log("Thanks for the item! Here's what I got for you:");
         }
