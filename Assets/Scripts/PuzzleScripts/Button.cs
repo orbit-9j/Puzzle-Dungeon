@@ -12,12 +12,12 @@ public class Button : Collidable
     public void OpenDoor(GameObject door)
     {
         GetComponent<SpriteRenderer>().sprite = buttonOn;
-        door.GetComponent<ExitDoor>().DoorOpen();
+        door.GetComponent<ExitDoor>().CmdDoorOpen();
     }
 
     public void CloseDoor(GameObject door)
     {
         GetComponent<SpriteRenderer>().sprite = buttonOff;
-        door.GetComponent<ExitDoor>().DoorClose();
+        door.GetComponent<ExitDoor>().CmdDoorClose();
     }
 }

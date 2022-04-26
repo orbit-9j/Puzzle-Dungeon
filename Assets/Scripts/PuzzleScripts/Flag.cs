@@ -4,59 +4,37 @@ using UnityEngine;
 
 using Mirror;
 
-
-/* public event OnHarm onHarm;
-[ClientRpc]
-private void RpcOnHarm(float damage, GameObject attacker)
-{
-    this.onHarm?.Invoke(damage, attacker);
-}
-
-[Server]
-private void Harm(float damage, GameObject attacker)
-{
-    // harm stuff here
-
-    // invoke on server
-    this.onHarm?.Invoke(damage, attacker); 
-    // invoke on client
-    RpcOnHarm(damage, attacker);
-}
-
-
 public class Flag : NetworkBehaviour
 {
-    private bool isUp = true;
-    public event OnCollect onCollect;
+    [SyncVar]
+    private bool pickedUp = false;
+    public enum Colour { Red, Purple, Green, Orange } // Contains the possible colours for flags
+    // Saves a bit of work, but not implemented as cleanly/extensibly as it could be
+    public Colour colour = Colour.Red; // Default colour
 
-    public void FlagCapture()
+    [Client]
+    public void Capture()
     {
-        if(isUp)
-        {
-            GameObject player = NetworkClient.localPlayer.gameObject;
-            PlayerManager manager = player.GetComponent<PlayerManager>();
-            manager.PickupFlag(gameObject);
-        //Destroy(gameObject);
-            gameObject.SetActive(false);
-        }
-    } */
-
-
-
-public class Flag : NetworkBehaviour
-{
-    private bool isUp = true;
-
-    public void FlagCapture()
-    {
-        if(isUp)
-        {
-            GameObject player = NetworkClient.localPlayer.gameObject;
-            PlayerManager manager = player.GetComponent<PlayerManager>();
-            manager.PickupFlag(gameObject);
-        //Destroy(gameObject);
-            gameObject.SetActive(false);
-        }
+        // Run on the client, probably unnecessary 
+        CmdCapture(NetworkClient.localPlayer.gameObject);
     }
 
+    [Command(requiresAuthority = false)]
+    private void CmdCapture(GameObject player)
+    {
+        // Runs on the server, tell the server we have taken a flag
+        pickedUp = true;
+        RpcUpdateFlag(player);
+    }
+
+    [ClientRpc]
+    private void RpcUpdateFlag(GameObject player)
+    {
+        // Runs on client once the server has updated, disables the flag and adds to the PlayerManager
+        gameObject.SetActive(false);
+        if (NetworkClient.localPlayer.gameObject == player)
+        {
+            player.GetComponent<PlayerManager>().PickupFlag(colour);
+        }
+    }
 }

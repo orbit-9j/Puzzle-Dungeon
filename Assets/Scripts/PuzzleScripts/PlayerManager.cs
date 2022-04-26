@@ -6,52 +6,57 @@ using Mirror;
 
 public class PlayerManager : NetworkBehaviour
 {
-    public int redFlagCount;
-    public int purpleFlagCount;
-    public int greenFlagCount;
-    public int orangeFlagCount;
+    [System.Serializable]
+    public struct FlagCounter
+    {
+        // Contains the number of flags held of a respective colour
+        public int Red, Green, Orange, Purple;
+    }
+
+    public FlagCounter flagCounts = new FlagCounter();
 
     public bool heldItem = false;
 
-    public void PickupFlag(GameObject obj)
+
+
+    public void PickupFlag(Flag.Colour colour)
     {
-        if (obj.name == "RedFlag")
+        // Player picked up a flag; increment the number of this flag held
+        switch (colour)
         {
-            redFlagCount++;
-        }
-        else if (obj.name == "PurpleFlag")
-        {
-            purpleFlagCount++;
-        }
-        else if (obj.name == "GreenFlag")
-        {
-            greenFlagCount++;
-        }
-        else if (obj.name == "OrangeFlag")
-        {
-            orangeFlagCount++;
+            case Flag.Colour.Red:
+                flagCounts.Red += 1;
+                break;
+            case Flag.Colour.Green:
+                flagCounts.Green += 1;
+                break;
+            case Flag.Colour.Orange:
+                flagCounts.Orange += 1;
+                break;
+            case Flag.Colour.Purple:
+                flagCounts.Purple += 1;
+                break;
         }
     }
 
 
-    public void UseFlag(GameObject obj)
+    public void UseFlag(Flag.Colour colour)
     {
-        //the flag count is actually checked in the totem script to get it to work properly, but i do it here too in case they will be used in a different script
-        if (obj.name == "RedFlag" && redFlagCount > 0)
+        // Player used a flag; decrement the number of this flag held
+        switch (colour)
         {
-            redFlagCount--;
-        }
-        else if (obj.name == "PurpleFlag" && purpleFlagCount > 0)
-        {
-            purpleFlagCount--;
-        }
-        else if (obj.name == "GreenFlag" && greenFlagCount > 0)
-        {
-            greenFlagCount--;
-        }
-        else if (obj.name == "OrangeFlag" && orangeFlagCount > 0)
-        {
-            orangeFlagCount--;
+            case Flag.Colour.Red:
+                flagCounts.Red -= 1;
+                break;
+            case Flag.Colour.Green:
+                flagCounts.Green -= 1;
+                break;
+            case Flag.Colour.Orange:
+                flagCounts.Orange -= 1;
+                break;
+            case Flag.Colour.Purple:
+                flagCounts.Purple -= 1;
+                break;
         }
     }
 
@@ -61,45 +66,4 @@ public class PlayerManager : NetworkBehaviour
         heldItem = true;
     }
 
-    /* ----------------old------------------ */
-    public void PickupRedFlag()
-    {
-        if (redFlagCount > 0)
-            redFlagCount++;
-    }
-
-    public void PickupPurpleFlag()
-    {
-        purpleFlagCount++;
-    }
-
-    public void PickupGreenFlag()
-    {
-        greenFlagCount++;
-    }
-
-    public void PickupOrangeFlag()
-    {
-        orangeFlagCount++;
-    }
-
-    public void useRedFlag()
-    {
-        redFlagCount--;
-    }
-
-    public void usePurpleFlag()
-    {
-        purpleFlagCount--;
-    }
-
-    public void useGreenFlag()
-    {
-        greenFlagCount--;
-    }
-
-    public void useOrangeFlag()
-    {
-        orangeFlagCount--;
-    }
 }

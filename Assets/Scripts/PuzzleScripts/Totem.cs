@@ -6,53 +6,88 @@ using Mirror;
 
 public class Totem : NetworkBehaviour
 {
+    [SyncVar]
     public bool hasFlag = false;
+    public Flag.Colour colour = Flag.Colour.Red; // Set a default colour
     public GameObject flagSprite;
-    protected TotemManager totemManager;
 
-    public void EquipFlag()
+    [Client]
+    public void PlaceFlagOnTotem()
     {
-        GameObject player = NetworkClient.localPlayer.gameObject;
-        totemManager = GameObject.Find("TotemManager").GetComponent<TotemManager>();
-
+        // Called only by clients
+        NetworkIdentity player = NetworkClient.localPlayer; // Find the local player
+        PlayerManager playerManager = player.GetComponent<PlayerManager>(); // Get the local PlayerManager
         if (!hasFlag)
         {
-            PlayerManager manager = player.GetComponent<PlayerManager>();
-            if (manager)
+            if (playerManager)
             {
-                if (flagSprite.name == "PurpleFlag" && manager.purpleFlagCount > 0)
+                switch (colour)
+                // Depending on flag colour, add flag to the totem and consume the flag
                 {
-                    hasFlag = true;
-                    manager.UseFlag(flagSprite);
-                    flagSprite.SetActive(true);
-                    totemManager.purpleTotem = true;
+                    case Flag.Colour.Purple:
+                        if (playerManager.flagCounts.Purple > 0)
+                        {
+                            CmdAddFlagToTotem(Flag.Colour.Purple);
+                            playerManager.UseFlag(Flag.Colour.Purple);
+                        }
+                        break;
+                    case Flag.Colour.Orange:
+                        if (playerManager.flagCounts.Orange > 0)
+                        {
+                            CmdAddFlagToTotem(Flag.Colour.Orange);
+                            playerManager.UseFlag(Flag.Colour.Orange);
+                        }
+                        break;
+                    case Flag.Colour.Red:
+                        if (playerManager.flagCounts.Red > 0)
+                        {
+                            CmdAddFlagToTotem(Flag.Colour.Red);
+                            playerManager.UseFlag(Flag.Colour.Red);
+                        }
+                        break;
+                    case Flag.Colour.Green:
+                        if (playerManager.flagCounts.Green > 0)
+                        {
+                            CmdAddFlagToTotem(Flag.Colour.Green);
+                            playerManager.UseFlag(Flag.Colour.Green);
+                        }
+                        break;
                 }
 
-                else if (flagSprite.name == "RedFlag" && manager.redFlagCount > 0)
-                {
-                    hasFlag = true;
-                    manager.UseFlag(flagSprite);
-                    flagSprite.SetActive(true);
-                    totemManager.redTotem = true;
-                }
-
-                else if (flagSprite.name == "OrangeFlag" && manager.orangeFlagCount > 0)
-                {
-                    hasFlag = true;
-                    manager.UseFlag(flagSprite);
-                    flagSprite.SetActive(true);
-                    totemManager.orangeTotem = true;
-                }
-
-                else if (flagSprite.name == "GreenFlag" && manager.greenFlagCount > 0)
-                {
-                    hasFlag = true;
-                    manager.UseFlag(flagSprite);
-                    flagSprite.SetActive(true);
-                    totemManager.greenTotem = true;
-                }
             }
         }
+    }
 
+    [Command(requiresAuthority = false)]
+    private void CmdAddFlagToTotem(Flag.Colour colour)
+    {
+        // Runs on server, a lot of duplicated code, should be changed
+        // Simply adds the correct flag to the totem, if appropriate
+        TotemManager totemManager = GameObject.Find("TotemManager").GetComponent<TotemManager>();
+        switch (colour)
+        {
+            case Flag.Colour.Red:
+                totemManager.flags.red = true;
+                RpcSetFlagActive();
+                break;
+            case Flag.Colour.Orange:
+                totemManager.flags.orange = true;
+                RpcSetFlagActive();
+                break;
+            case Flag.Colour.Purple:
+                totemManager.flags.purple = true;
+                RpcSetFlagActive();
+                break;
+            case Flag.Colour.Green:
+                totemManager.flags.green = true;
+                RpcSetFlagActive();
+                break;
+        }
+    }
+    [ClientRpc]
+    private void RpcSetFlagActive()
+    {
+        // Runs on client, activates the flag sprite if appropriate
+        flagSprite.SetActive(true);
     }
 }

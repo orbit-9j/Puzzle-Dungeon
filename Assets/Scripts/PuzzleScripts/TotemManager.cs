@@ -6,16 +6,19 @@ using Mirror;
 
 public class TotemManager : NetworkBehaviour
 {
-    public bool redTotem = false;
-    public bool purpleTotem = false;
-    public bool greenTotem = false;
-    public bool orangeTotem = false;
+    public struct Flags
+    {
+        // Holds the value of whether the totem for a respective flag has been activated
+        public bool red, purple, green, orange;
+    }
+    [SyncVar]
+    public Flags flags = new Flags();
 
     public void OpenDoor(GameObject door)
     {
-        if (redTotem == true && purpleTotem == true && greenTotem == true && orangeTotem == true)
+        if (flags.red && flags.orange && flags.green && flags.purple)
         {
-            door.GetComponent<ExitDoor>().DoorOpen();
+            door.GetComponent<ExitDoor>().CmdDoorOpen();
         }
     }
 }

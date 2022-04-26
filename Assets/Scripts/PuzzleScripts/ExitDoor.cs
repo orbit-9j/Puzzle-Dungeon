@@ -11,13 +11,17 @@ public class ExitDoor : NetworkBehaviour
     [SyncVar(hook = nameof(OnOpenStateUpdated))]
     private bool isOpen = false;
 
-    public void DoorOpen()
+    [Command(requiresAuthority = false)]
+    public void CmdDoorOpen()
     {
+        // Opens the door, called on the server
         isOpen = true;
     }
 
-    public void DoorClose()
+    [Command(requiresAuthority = false)]
+    public void CmdDoorClose()
     {
+        // Closes the door, called on the server
         isOpen = false;
     }
 
