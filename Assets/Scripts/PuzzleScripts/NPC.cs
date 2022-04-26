@@ -2,42 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using Mirror; 
+using Mirror;
 
 public class NPC : NetworkBehaviour
 {
-    public bool item = false;
-    public bool itemGiven = false;
-    public void ExchangeItem(){
+    [SyncVar]
+    private bool hasGivenItem = false;
+    [Client]
+    public void RequestTrade()
+    {
+        // Only called by client, tries to trade if possible
+        Debug.Log("Requesting Trade");
         GameObject player = NetworkClient.localPlayer.gameObject;
-        //GameObject player = GameObject.Find("Player");
         PlayerManager manager = player.GetComponent<PlayerManager>();
-        if (item == false && manager.heldItem == false){
-            Debug.Log("I need an item!");
+        if (manager.isHoldingItem && !hasGivenItem)
+        {
+            Debug.Log("Executing Trade");
+            // Player is holding the item required..
+            CmdTradeItem(player);
         }
-        else if (item == false && manager.heldItem == true){
-            manager.heldItem = false;
-            itemGiven = true;
-            Debug.Log("Thanks for the item! Here's what I got for you:");
-        }
-        else{
-            Debug.Log("I already have the item!");
-        }
-        //Debug.Log
     }
 
-    public void GiveOrangeFlag()
+    [Command(requiresAuthority = false)]
+    private void CmdTradeItem(GameObject player)
     {
-        ExchangeItem();
-        if (itemGiven)
+        // Called on server, attempts to trade an item if one hasn't already been given
+        RpcUpdateItem(player);
+        hasGivenItem = true;
+        Debug.Log("Traded items.");
+    }
+
+    [ClientRpc]
+    private void RpcUpdateItem(GameObject player)
+    {
+        // Called by client, adds the correct flag and removes item if player initiated the trade
+        if (NetworkClient.localPlayer.gameObject == player)
         {
-            GameObject player = NetworkClient.localPlayer.gameObject;
-            //GameObject player = GameObject.Find("Player");
-            PlayerManager manager = player.GetComponent<PlayerManager>();
-            manager.PickupOrangeFlag();
-            itemGiven = false;
-            Debug.Log("Orange FLag!");
+            PlayerManager pm = player.GetComponent<PlayerManager>();
+            pm.isHoldingItem = false;
+            pm.PickupFlag(Flag.Colour.Orange);
         }
     }
-    
 }

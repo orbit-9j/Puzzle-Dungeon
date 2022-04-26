@@ -68,21 +68,19 @@ public class Totem : NetworkBehaviour
         {
             case Flag.Colour.Red:
                 totemManager.flags.red = true;
-                RpcSetFlagActive();
                 break;
             case Flag.Colour.Orange:
                 totemManager.flags.orange = true;
-                RpcSetFlagActive();
                 break;
             case Flag.Colour.Purple:
                 totemManager.flags.purple = true;
-                RpcSetFlagActive();
                 break;
             case Flag.Colour.Green:
                 totemManager.flags.green = true;
-                RpcSetFlagActive();
                 break;
         }
+        RpcSetFlagActive();
+        hasFlag = true;
     }
     [ClientRpc]
     private void RpcSetFlagActive()

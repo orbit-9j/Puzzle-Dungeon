@@ -15,9 +15,7 @@ public class PlayerManager : NetworkBehaviour
 
     public FlagCounter flagCounts = new FlagCounter();
 
-    public bool heldItem = false;
-
-
+    public bool isHoldingItem = false;
 
     public void PickupFlag(Flag.Colour colour)
     {
@@ -63,7 +61,7 @@ public class PlayerManager : NetworkBehaviour
 
     public void PickupItem()
     {
-        heldItem = true;
+        isHoldingItem = true;
     }
 
 }
