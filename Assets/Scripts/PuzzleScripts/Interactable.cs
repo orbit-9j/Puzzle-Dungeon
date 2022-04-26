@@ -3,40 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+using Mirror;
 public class Interactable : MonoBehaviour
 {
-    public bool isInRange;
+    [SerializeField]
+    private bool isInRange;
     public KeyCode interactKey;
     public UnityEvent action;
     public UnityEvent onLeaveAction;
-   
 
-    // Update is called once per frame
+    [Client]
     void Update()
     {
         if (isInRange)
         {
-            if(Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
+            if (Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
             {
                 action.Invoke();
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D coll){
-        if(coll.gameObject.CompareTag("Player"))
+    [Client]
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        GameObject collider = coll.gameObject;
+        if (collider.CompareTag("Player")) // it's a player
         {
-            isInRange = true;
+            if (collider.GetComponent<NetworkIdentity>().isLocalPlayer)
+            {
+                isInRange = true;
+            }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D coll){
-        if(coll.gameObject.CompareTag("Player"))
+    [Client]
+    private void OnTriggerExit2D(Collider2D coll)
+    {
+        GameObject collider = coll.gameObject;
+        if (collider.CompareTag("Player")) // it's a player
         {
-            isInRange = false;
-            if(Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
+            if (collider.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
-                onLeaveAction.Invoke(); //action to do as player exits interactable area. eg button un-pushes and door closes (as opposed to lever which has no counter-action and keeps the door open)
+                isInRange = false;
+                if (Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
+                {
+                    onLeaveAction.Invoke(); //action to do as player exits interactable area. eg button un-pushes and door closes (as opposed to lever which has no counter-action and keeps the door open)
+                }
             }
         }
     }
