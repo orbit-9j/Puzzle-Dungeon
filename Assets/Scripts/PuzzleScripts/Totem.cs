@@ -4,12 +4,14 @@ using UnityEngine;
 
 using Mirror;
 
-public class Totem : NetworkBehaviour
+public class Totem : Switch
 {
-    [SyncVar]
-    public bool hasFlag = false;
     public Flag.Colour colour = Flag.Colour.Red; // Set a default colour
     public GameObject flagSprite;
+    protected override void InteractCallback()
+    {
+        PlaceFlagOnTotem();
+    }
 
     [Client]
     public void PlaceFlagOnTotem()
@@ -17,7 +19,7 @@ public class Totem : NetworkBehaviour
         // Called only by clients
         NetworkIdentity player = NetworkClient.localPlayer; // Find the local player
         PlayerManager playerManager = player.GetComponent<PlayerManager>(); // Get the local PlayerManager
-        if (!hasFlag)
+        if (!state)
         {
             if (playerManager)
             {
@@ -80,12 +82,13 @@ public class Totem : NetworkBehaviour
                 break;
         }
         RpcSetFlagActive();
-        hasFlag = true;
+        state = true;
     }
     [ClientRpc]
     private void RpcSetFlagActive()
     {
         // Runs on client, activates the flag sprite if appropriate
         flagSprite.SetActive(true);
+        GetComponent<Totem>().enabled = false;
     }
 }

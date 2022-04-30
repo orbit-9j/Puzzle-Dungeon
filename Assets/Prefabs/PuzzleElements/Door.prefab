@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -9112623177199093562}
   - component: {fileID: 6089978617774766851}
   m_Layer: 3
-  m_Name: ExitDoor
+  m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4830962033749370500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae1b0cf543eb764eb8904ef622ea15d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c1a1b5ebefc2f946aacb1711ac32120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0

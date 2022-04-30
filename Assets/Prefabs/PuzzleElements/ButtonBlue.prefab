@@ -28,9 +28,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2536473723087619775, guid: f009de04906173c4897a4bcc29e40273, type: 3}
     - target: {fileID: 1912532680051385122, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
+      propertyPath: spriteOn
+      value: 
+      objectReference: {fileID: -9143081815349859717, guid: 3390026e866d9ef4a8327c5a126ed06d, type: 3}
+    - target: {fileID: 1912532680051385122, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
       propertyPath: buttonOff
       value: 
       objectReference: {fileID: 7629146819804926944, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+    - target: {fileID: 1912532680051385122, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
+      propertyPath: spriteOff
+      value: 
+      objectReference: {fileID: -2604203196112789670, guid: 7f921e6a7c544bc48834f5b90b530ea6, type: 3}
     - target: {fileID: 1912532680051385132, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
       propertyPath: m_Name
       value: ButtonBlue
@@ -85,59 +93,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
---- !u!1 &5485952049954403686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1912532680051385132, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
-  m_PrefabInstance: {fileID: 6244427818572338762}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-3250607339017667942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5485952049954403686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  clientAuthority: 0
-  sendInterval: 0.05
-  syncPosition: 1
-  syncRotation: 1
-  syncScale: 0
-  interpolatePosition: 1
-  interpolateRotation: 1
-  interpolateScale: 0
-  bufferTimeMultiplier: 1
-  bufferSizeLimit: 64
-  catchupThreshold: 4
-  catchupMultiplier: 0.1
-  onlySyncOnChange: 1
-  bufferResetMultiplier: 5
-  positionSensitivity: 0.01
-  rotationSensitivity: 0.01
-  scaleSensitivity: 0.01
-  showGizmos: 0
-  showOverlay: 0
-  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
---- !u!114 &6212078373868186350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5485952049954403686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 535de006073ad034991adaec45f4dc26
-  hasSpawned: 0

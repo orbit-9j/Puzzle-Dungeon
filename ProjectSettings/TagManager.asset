@@ -7,6 +7,7 @@ TagManager:
   - Fighter
   - RoomSpawn
   - Crate
+  - Rooms
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Water
   - UI
   - Minimap
-  - 
+  - Player
   - 
   - 
   - 
@@ -41,24 +42,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Particles
-    uniqueID: 921805785
+  - name: Floor
+    uniqueID: 2271566169
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: floor
-    uniqueID: 2271566169
+  - name: InteractablesBelowPlayer
+    uniqueID: 1454286121
     locked: 0
-  - name: dudes
-    uniqueID: 842378057
+  - name: Player
+    uniqueID: 1994169187
     locked: 0
-  - name: wall
+  - name: InteractablesAbovePlayer
+    uniqueID: 1743996839
+    locked: 0
+  - name: Walls
     uniqueID: 1096741691
     locked: 0
-  - name: interactable
-    uniqueID: 4193487459
-    locked: 0
-  - name: weapon
-    uniqueID: 1128710665
+  - name: WallDecorations
+    uniqueID: 3013893059
     locked: 0

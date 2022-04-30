@@ -1,46 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using Mirror;
 
-public class NPC : NetworkBehaviour
+public class NPC : Switch
 {
     [SyncVar]
     private bool hasGivenItem = false;
+    public Flag.Colour flagColour;
+    protected override void InteractCallback()
+    {
+        RequestTrade();
+    }
     [Client]
     public void RequestTrade()
     {
         // Only called by client, tries to trade if possible
-        Debug.Log("Requesting Trade");
-        GameObject player = NetworkClient.localPlayer.gameObject;
+        Player player = NetworkClient.localPlayer.GetComponent<Player>();
         PlayerManager manager = player.GetComponent<PlayerManager>();
         if (manager.isHoldingItem && !hasGivenItem)
         {
-            Debug.Log("Executing Trade");
             // Player is holding the item required..
-            CmdTradeItem(player);
+            CmdTradeItem();
+            manager.PickupFlag(flagColour);
+            manager.isHoldingItem = false;
         }
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdTradeItem(GameObject player)
+    private void CmdTradeItem()
     {
-        // Called on server, attempts to trade an item if one hasn't already been given
-        RpcUpdateItem(player);
+        // Called on server
         hasGivenItem = true;
-        Debug.Log("Traded items.");
-    }
-
-    [ClientRpc]
-    private void RpcUpdateItem(GameObject player)
-    {
-        // Called by client, adds the correct flag and removes item if player initiated the trade
-        if (NetworkClient.localPlayer.gameObject == player)
-        {
-            PlayerManager pm = player.GetComponent<PlayerManager>();
-            pm.isHoldingItem = false;
-            pm.PickupFlag(Flag.Colour.Orange);
-        }
     }
 }

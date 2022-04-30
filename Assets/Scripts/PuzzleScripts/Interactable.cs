@@ -1,54 +1,66 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-
 using Mirror;
-public class Interactable : MonoBehaviour
+public abstract class Interactable : NetworkBehaviour
 {
+    // The base interactable class
+    // TODO: There needs to be some way for the player to only interact with a single (nearest/first) interactable,
+    //       when they are in range of multiple. Possibly implement a list of in-range interactables on the player?
     [SerializeField]
-    private bool isInRange;
-    public KeyCode interactKey;
-    public UnityEvent action;
-    public UnityEvent onLeaveAction;
-
+    protected bool isInRange;
+    [SerializeField]
+    protected Collider2D interactCollider;
+    [SerializeField]
+    protected virtual bool requiresKeyPress => true;
+    [SerializeField]
+    protected KeyCode interactKey = KeyCode.E;
+    [SerializeField]
+    protected string interactableText;
     [Client]
     void Update()
     {
         if (isInRange)
         {
-            if (Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
+            if (Input.GetKeyDown(interactKey) || !requiresKeyPress)
             {
-                action.Invoke();
+                InteractCallback();
             }
         }
+
     }
     [Client]
-    private void OnTriggerEnter2D(Collider2D coll)
+    protected virtual void OnTriggerEnter2D(Collider2D coll)
     {
         GameObject collider = coll.gameObject;
         if (collider.CompareTag("Player")) // it's a player
         {
-            if (collider.GetComponent<NetworkIdentity>().isLocalPlayer)
+            Player player = collider.GetComponent<Player>();
+            if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
                 isInRange = true;
+                if (interactableText != null)
+                {
+                    player.ShowInteractText(interactableText);
+                }
+                else { player.ShowInteractText(); }
             }
         }
     }
     [Client]
-    private void OnTriggerExit2D(Collider2D coll)
+    protected virtual void OnTriggerExit2D(Collider2D coll)
     {
         GameObject collider = coll.gameObject;
-        if (collider.CompareTag("Player")) // it's a player
+        if (collider.tag == "Player")
         {
-            if (collider.GetComponent<NetworkIdentity>().isLocalPlayer)
+            Player player = collider.GetComponent<Player>();
+            if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
                 isInRange = false;
-                if (Input.GetKeyDown(interactKey) || interactKey == KeyCode.None)
-                {
-                    onLeaveAction.Invoke(); //action to do as player exits interactable area. eg button un-pushes and door closes (as opposed to lever which has no counter-action and keeps the door open)
-                }
+                player.HideInteractText();
+                LeaveCallback();
             }
         }
     }
+
+    protected abstract void InteractCallback();
+    protected virtual void LeaveCallback() { }
 }

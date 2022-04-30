@@ -1,40 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-using Mirror; 
+using Mirror;
 
 public class CratePickup : NetworkBehaviour
 {
-    /* private bool holding = false; */
-    private Transform BoxHolder;
+    // Sync both of these so each client knows if the crate is held, and who by
+    [SyncVar]
+    public bool holding = false;
+    [SyncVar]
+    public Player carrier = null;
 
-    public void CrateManager(GameObject player)
+    [Client]
+    public void CrateInteract()
     {
-        BoxHolder = player.transform.Find("CrateHolder");
-        if (gameObject.transform.parent == BoxHolder/* holding == false */){
-            PickupCrate(player);
-        }
-        else
+        Player localPlayer = NetworkClient.localPlayer.gameObject.GetComponent<Player>();
+        if (holding && carrier == localPlayer)
         {
-            DropCrate(player);
+            // Local player is carrying the crate, try to drop it
+            CmdDropCrate(localPlayer);
+        }
+        else if (!holding)
+        {
+            // Crate is not held, try to pick it up
+            CmdPickupCrate(localPlayer);
         }
     }
-    public void PickupCrate(GameObject player)
+    [Command(requiresAuthority = false)]
+    private void CmdPickupCrate(Player player)
     {
-        //also access player manager to check crate number
-        BoxHolder = player.transform.Find("CrateHolder");
-        gameObject.transform.parent = BoxHolder;
-        gameObject.transform.position = BoxHolder.position;
-        /* holding = true; */
-
+        // Runs on server. Updates state and then returns the remote command on clients
+        holding = true;
+        carrier = player;
+        RpcAttachCrate(player);
     }
-
-    public void DropCrate(GameObject player)
+    [Command(requiresAuthority = false)]
+    private void CmdDropCrate(Player player)
     {
-        BoxHolder = player.transform.Find("CrateHolder");
+        // Runs on server. Updates state and then returns the remote command on clients
+        holding = false;
+        carrier = null;
+        RpcDetachCrate(player);
+    }
+    [ClientRpc]
+    private void RpcAttachCrate(Player player)
+    {
+        // Runs on client after command. Disables collision then attaches to carrier
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.transform.parent = player.transform;
+        player.slowFactor = 0.5f;
+    }
+    [ClientRpc]
+    private void RpcDetachCrate(Player player)
+    {
+        // Runs on client after command. Enables collision then detaches from carrier
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
         gameObject.transform.SetParent(null, true);
-        gameObject.transform.position = BoxHolder.position;
-        /* holding = false; */
+        player.slowFactor = 1.0f;
     }
 }

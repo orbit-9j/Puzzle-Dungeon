@@ -1,47 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 using Mirror;
 
-public class DigSpot : NetworkBehaviour
+public class DigSpot : Switch
 {
-    public Sprite digAvailable;
-    public Sprite digHole;
-    private SpriteRenderer sr;
-    [SyncVar]
     private bool diggable = true;
 
-    public void Start()
+    protected override void InteractCallback()
     {
-        sr = GetComponent<SpriteRenderer>();
+        TryDig();
     }
 
     [Client]
     public void TryDig()
     {
-        GameObject player = NetworkClient.localPlayer.gameObject;
-        if (diggable)
+        PlayerManager pm = NetworkClient.localPlayer.GetComponent<PlayerManager>();
+        if (diggable && pm.capabilities.DigHole)
         {
-            CmdDig(player);
+            pm.PickupItem();
+            CmdDig();
         }
     }
 
     [Command(requiresAuthority = false)]
-    private void CmdDig(GameObject player)
+    private void CmdDig()
     {
         diggable = false;
-        RpcDigItem(player);
+        RpcDigItem();
     }
 
     [ClientRpc]
-    private void RpcDigItem(GameObject player)
+    private void RpcDigItem()
     {
-        if (NetworkClient.localPlayer.gameObject == player)
-        {
-            PlayerManager pm = player.GetComponent<PlayerManager>();
-            pm.PickupItem();
-        }
-        sr.sprite = digHole;
+        Activate();
     }
 }

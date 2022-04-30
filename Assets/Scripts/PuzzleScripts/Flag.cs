@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 using Mirror;
 
-public class Flag : NetworkBehaviour
+public class Flag : Interactable
 {
     [SyncVar]
     private bool pickedUp = false;
@@ -13,9 +12,8 @@ public class Flag : NetworkBehaviour
     public Colour colour = Colour.Red; // Default colour
 
     [Client]
-    public void Capture()
+    protected override void InteractCallback()
     {
-        // Run on the client, probably unnecessary 
         CmdCapture(NetworkClient.localPlayer.gameObject);
     }
 

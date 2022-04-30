@@ -6,6 +6,7 @@ using Mirror;
 
 public class PlayerManager : NetworkBehaviour
 {
+    public bool isHoldingItem = false;
     [System.Serializable]
     public struct FlagCounter
     {
@@ -15,7 +16,14 @@ public class PlayerManager : NetworkBehaviour
 
     public FlagCounter flagCounts = new FlagCounter();
 
-    public bool isHoldingItem = false;
+
+    [System.Serializable]
+    public struct Capabilities
+    {
+        public bool DigHole, MoveCrate;
+    }
+
+    public Capabilities capabilities = new Capabilities();
 
     public void PickupFlag(Flag.Colour colour)
     {

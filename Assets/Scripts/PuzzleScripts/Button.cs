@@ -1,23 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class Button : Collidable
+using Mirror;
+public class Button : Switch
 {
-    [SerializeField]
-    private Sprite buttonOn;
-    [SerializeField]
-    private Sprite buttonOff;
+    public Openable openable;
+    protected override bool requiresKeyPress => false;
 
-    public void OpenDoor(GameObject door)
+    [Client]
+    protected override void InteractCallback()
     {
-        GetComponent<SpriteRenderer>().sprite = buttonOn;
-        door.GetComponent<ExitDoor>().CmdDoorOpen();
+        Activate();
+    }
+    [Client]
+    protected override void LeaveCallback()
+    {
+        Deactivate();
+    }
+    protected override void Activate()
+    {
+        base.Activate();
+        openable.Open();
     }
 
-    public void CloseDoor(GameObject door)
+    protected override void Deactivate()
     {
-        GetComponent<SpriteRenderer>().sprite = buttonOff;
-        door.GetComponent<ExitDoor>().CmdDoorClose();
+        base.Deactivate();
+        openable.Close();
     }
 }

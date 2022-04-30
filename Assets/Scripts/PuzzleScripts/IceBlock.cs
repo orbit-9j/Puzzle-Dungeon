@@ -4,21 +4,27 @@ using UnityEngine;
 
 using Mirror;
 
-public class IceBlock : NetworkBehaviour
+public class IceBlock : Interactable
 {
     private ParticleSystem particles;
     private SpriteRenderer sr;
-    private BoxCollider2D bc;
+    private BoxCollider2D boxCollider;
 
 
     private void Awake()
     {
         particles = GetComponentInChildren<ParticleSystem>();
         sr = GetComponent<SpriteRenderer>();
-        bc = GetComponent<BoxCollider2D>();
+        foreach (BoxCollider2D bc in GetComponents<BoxCollider2D>())
+        {
+            if (!bc.isTrigger)
+            {
+                boxCollider = bc;
+            }
+        }
     }
     [Command(requiresAuthority = false)]
-    public void BreakIce()
+    protected override void InteractCallback()
     {
         // Sends a message to the server to call Break on all clients
         Break();
@@ -30,9 +36,9 @@ public class IceBlock : NetworkBehaviour
         // Play the animation, disable collision and rendering, then remove the object after a delay
         particles.Play();
         sr.enabled = false;
-        bc.enabled = false;
+        boxCollider.enabled = false;
         int delay = (int)(particles.main.startLifetime.constantMax * 1000);
         await System.Threading.Tasks.Task.Delay(delay);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

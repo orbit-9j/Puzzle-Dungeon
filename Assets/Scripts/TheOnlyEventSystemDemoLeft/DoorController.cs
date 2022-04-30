@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
@@ -10,28 +8,31 @@ public class DoorController : MonoBehaviour
     public Sprite doorClosed;
     void Start()
     {
-        
         GameEvents.current.onDoorEnter += onDoorOpen;
         GameEvents.current.onDoorExit += onDoorClose;
     }
 
-    private void onDoorOpen(int id){
-        if (id == this.id){
+    private void onDoorOpen(int id)
+    {
+        if (id == this.id)
+        {
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().sprite = doorOpen;
         }
-        
+
     }
 
-    private void onDoorClose(int id){
-        if (id == this.id){
+    private void onDoorClose(int id)
+    {
+        if (id == this.id)
+        {
             GetComponent<BoxCollider2D>().enabled = true;
             GetComponent<SpriteRenderer>().sprite = doorClosed;
         }
-        
     }
 
-    private void onDestroy(){
+    private void onDestroy()
+    {
         GameEvents.current.onDoorEnter -= onDoorOpen;
         GameEvents.current.onDoorExit -= onDoorClose;
     }
