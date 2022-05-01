@@ -29,7 +29,6 @@ public class Collidable : NetworkBehaviour
 
     protected virtual void OnCollide(Collider2D coll)
     {
-        Debug.Log(coll);
         // The method called when this object collides with another collidable
     }
 }

@@ -20,10 +20,20 @@ public abstract class Interactable : NetworkBehaviour
     {
         if (isInRange)
         {
-            if (Input.GetKeyDown(interactKey) || !requiresKeyPress)
+            Player player = NetworkClient.localPlayer.gameObject.GetComponent<Player>();
+            if (player.nearestInteractable.First.Value == GetComponent<Interactable>())
             {
-                InteractCallback();
+                GetComponent<SpriteRenderer>().color = Color.grey;
+                if (Input.GetKeyDown(interactKey) || !requiresKeyPress)
+                {
+                    InteractCallback();
+                }
             }
+            else { GetComponent<SpriteRenderer>().color = Color.white; }
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
 
     }
@@ -37,6 +47,7 @@ public abstract class Interactable : NetworkBehaviour
             if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
                 isInRange = true;
+                player.nearestInteractable.AddFirst(gameObject.GetComponent<Interactable>());
                 if (interactableText != null)
                 {
                     player.ShowInteractText(interactableText);
@@ -55,6 +66,7 @@ public abstract class Interactable : NetworkBehaviour
             if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
             {
                 isInRange = false;
+                player.nearestInteractable.Remove(gameObject.GetComponent<Interactable>());
                 player.HideInteractText();
                 LeaveCallback();
             }

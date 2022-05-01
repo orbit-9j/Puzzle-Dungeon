@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 using Cinemachine;
 using Mirror;
@@ -11,6 +12,8 @@ public class Player : Mover
     private Text interactText;
     [SerializeField]
     private Canvas uiCanvas;
+
+    public LinkedList<Interactable> nearestInteractable = new LinkedList<Interactable>();
 
     [Client]
     protected override void Start()
