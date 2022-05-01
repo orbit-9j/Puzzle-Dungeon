@@ -9,7 +9,7 @@ public class TotemManager : NetworkBehaviour
         // Holds the value of whether the totem for a respective flag has been activated
         public bool red, purple, green, orange;
     }
-    [SyncVar]
+    [SyncVar] // The value of this var should only be updated on the server, so all changes should propagate 
     public Flags flags = new Flags();
 
     public void OpenDoor(Door door)

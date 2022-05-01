@@ -26,9 +26,9 @@ public class Crate : Interactable
             // Local player is carrying the crate, try to drop it
             CmdDropCrate(localPlayer);
         }
-        else if (!holding)
+        else if (!holding && localPlayer.GetComponent<PlayerManager>().capabilities.MoveCrate)
         {
-            // Crate is not held, try to pick it up
+            // Crate is not held and we can hold it, try to pick it up
             CmdPickupCrate(localPlayer);
         }
     }

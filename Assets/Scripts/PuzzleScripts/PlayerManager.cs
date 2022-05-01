@@ -20,7 +20,8 @@ public class PlayerManager : NetworkBehaviour
     [System.Serializable]
     public struct Capabilities
     {
-        public bool DigHole, MoveCrate;
+        // The abilities of the player
+        public bool DigHole, MoveCrate, BreakIce;
     }
 
     public Capabilities capabilities = new Capabilities();

@@ -23,13 +23,24 @@ public class IceBlock : Interactable
             }
         }
     }
-    [Command(requiresAuthority = false)]
+
     protected override void InteractCallback()
     {
-        // Sends a message to the server to call Break on all clients
-        Break();
+        // Check if the player can break ice
+        PlayerManager playerManager = NetworkClient.localPlayer.gameObject.GetComponent<PlayerManager>();
+        if (playerManager.capabilities.BreakIce)
+        {
+            // Sends a message to the server to call Break on all clients
+            CmdBreak();
+        }
     }
 
+
+    [Command(requiresAuthority = false)]
+    private void CmdBreak()
+    {
+        Break();
+    }
     [ClientRpc]
     async private void Break()
     {

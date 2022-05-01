@@ -8,6 +8,8 @@ public class Totem : Switch
 {
     public Flag.Colour colour = Flag.Colour.Red; // Set a default colour
     public GameObject flagSprite;
+
+    [Client]
     protected override void InteractCallback()
     {
         PlaceFlagOnTotem();

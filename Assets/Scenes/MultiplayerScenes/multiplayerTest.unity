@@ -438,10 +438,6 @@ PrefabInstance:
       value: CrateInteract
       objectReference: {fileID: 0}
     - target: {fileID: 8672075221859912340, guid: eb72f9335ad66224d8a0d105b85622fd, type: 3}
-      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672075221859912340, guid: eb72f9335ad66224d8a0d105b85622fd, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
@@ -2606,6 +2602,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 64933171}
+    - target: {fileID: 1100483837589906582, guid: aa2dc200f7ceb284b8a9c434505cc5c7, type: 3}
+      propertyPath: latching
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1100483837589906582, guid: aa2dc200f7ceb284b8a9c434505cc5c7, type: 3}
       propertyPath: openable
       value: 

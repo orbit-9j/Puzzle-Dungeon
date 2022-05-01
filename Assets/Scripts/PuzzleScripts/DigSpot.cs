@@ -14,9 +14,11 @@ public class DigSpot : Switch
     [Client]
     public void TryDig()
     {
+        // Check if the player can dig
         PlayerManager pm = NetworkClient.localPlayer.GetComponent<PlayerManager>();
         if (diggable && pm.capabilities.DigHole)
         {
+            // Pick up item and send command to server
             pm.PickupItem();
             CmdDig();
         }

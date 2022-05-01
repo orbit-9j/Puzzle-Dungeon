@@ -3,18 +3,16 @@ using Mirror;
 public abstract class Interactable : NetworkBehaviour
 {
     // The base interactable class
-    // TODO: There needs to be some way for the player to only interact with a single (nearest/first) interactable,
-    //       when they are in range of multiple. Possibly implement a list of in-range interactables on the player?
     [SerializeField]
     protected bool isInRange;
     [SerializeField]
     protected Collider2D interactCollider;
     [SerializeField]
-    protected virtual bool requiresKeyPress => true;
+    protected virtual bool requiresKeyPress => true; // A bool that stores whether you need to press a key to interact with this object
     [SerializeField]
     protected KeyCode interactKey = KeyCode.E;
     [SerializeField]
-    protected string interactableText;
+    protected string interactableText; // Text that is printed somewhere on the localplayer's UI when this item is highlighted
     [Client]
     void Update()
     {
@@ -22,8 +20,8 @@ public abstract class Interactable : NetworkBehaviour
         {
             Player player = NetworkClient.localPlayer.gameObject.GetComponent<Player>();
             if (player.nearestInteractable.First.Value == GetComponent<Interactable>())
-            {
-                GetComponent<SpriteRenderer>().color = Color.grey;
+            { // This item is close to the player, and was the most recent one approached
+                GetComponent<SpriteRenderer>().color = Color.grey; // Highlight
                 if (Input.GetKeyDown(interactKey) || !requiresKeyPress)
                 {
                     InteractCallback();
@@ -41,11 +39,11 @@ public abstract class Interactable : NetworkBehaviour
     protected virtual void OnTriggerEnter2D(Collider2D coll)
     {
         GameObject collider = coll.gameObject;
-        if (collider.CompareTag("Player")) // it's a player
+        if (collider.CompareTag("Player")) // It's a player
         {
             Player player = collider.GetComponent<Player>();
             if (player.GetComponent<NetworkIdentity>().isLocalPlayer)
-            {
+            { // It's the local player
                 isInRange = true;
                 player.nearestInteractable.AddFirst(gameObject.GetComponent<Interactable>());
                 if (interactableText != null)
@@ -73,6 +71,6 @@ public abstract class Interactable : NetworkBehaviour
         }
     }
 
-    protected abstract void InteractCallback();
-    protected virtual void LeaveCallback() { }
+    protected abstract void InteractCallback(); // Called when the player interacts with the object
+    protected virtual void LeaveCallback() { } // Called when the player leaves the object's trigger collider
 }

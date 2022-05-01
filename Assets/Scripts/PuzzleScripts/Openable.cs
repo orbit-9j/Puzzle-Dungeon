@@ -3,21 +3,25 @@ using Mirror;
 
 public abstract class Openable : NetworkBehaviour
 {
-    [SyncVar]
+    // A simple openable class. For objects like doors, chests or similar.
+    // Implements simple Open/Close/Toggle functionality, which is run on the server only
+    // SetOpenState and SetClosedState are called on clients when the state is changed, so should
+    // be used to do things like update sprites or local game state.
+    [SyncVar, SerializeField]
     protected bool isOpen = false;
 
     [Command(requiresAuthority = false)]
     public virtual void Open()
     {
         isOpen = true;
-        RpcUpdateOpenable();
+        RpcUpdateOpenable(true);
     }
 
     [Command(requiresAuthority = false)]
     public virtual void Close()
     {
         isOpen = false;
-        RpcUpdateOpenable();
+        RpcUpdateOpenable(false);
     }
     [Command(requiresAuthority = false)]
     public virtual void Toggle()
@@ -27,9 +31,9 @@ public abstract class Openable : NetworkBehaviour
     }
 
     [ClientRpc]
-    protected virtual void RpcUpdateOpenable()
+    protected virtual void RpcUpdateOpenable(bool open)
     {
-        if (isOpen)
+        if (open)
         {
             SetOpenState();
         }
