@@ -150,27 +150,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  isInRange: 0
   interactCollider: {fileID: 4603383909726041921}
   interactKey: 101
-  interactAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7641590684202944036}
-        m_TargetAssemblyTypeName: IceBlock, Assembly-CSharp
-        m_MethodName: BreakIce
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  leaveAction:
-    m_PersistentCalls:
-      m_Calls: []
-  interactableText: 
+  interactableText: Break Ice
 --- !u!114 &-5167066607278470754
 MonoBehaviour:
   m_ObjectHideFlags: 0
