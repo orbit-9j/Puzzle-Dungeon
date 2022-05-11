@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3575688101058739598}
   - component: {fileID: -8342922811612015972}
   m_Layer: 3
-  m_Name: PurpleFlagOrangeTotem
+  m_Name: PurpleTotem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

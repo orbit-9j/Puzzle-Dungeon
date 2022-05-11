@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8867874112676060732}
   - component: {fileID: 3053456147038807085}
   m_Layer: 3
-  m_Name: OrangeFlagOrangeTotem
+  m_Name: OrangeTotem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

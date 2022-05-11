@@ -23,13 +23,13 @@ public class Flag : Interactable
         // Runs on the server, tell the server we have taken a flag
         pickedUp = true;
         RpcUpdateFlag(player);
-    }
+    }   
 
     [ClientRpc]
     private void RpcUpdateFlag(GameObject player)
     {
         // Runs on client once the server has updated, disables the flag and adds to the PlayerManager
-        gameObject.SetActive(false);
+        GetComponent<SpriteRenderer>().enabled = false;
         if (NetworkClient.localPlayer.gameObject == player)
         {
             player.GetComponent<PlayerManager>().PickupFlag(colour);

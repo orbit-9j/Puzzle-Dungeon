@@ -5,7 +5,7 @@ public abstract class Mover : NetworkBehaviour
 {
 
     protected BoxCollider2D boxCollider;
-    protected RaycastHit2D hit;
+    public RaycastHit2D hit;
     protected Vector2 speed = new Vector2(5.0f, 5.0f);
     public float slowFactor = 1.0f; // A factor by which movement is slowed (multiplier)
     public Animator animator;
@@ -25,6 +25,7 @@ public abstract class Mover : NetworkBehaviour
     {
         GetComponent<SpriteRenderer>().flipX = spriteFacingLeft;
     }
+
     [Client]
     protected virtual void UpdateMotor(Vector2 input)
     {
@@ -59,7 +60,7 @@ public abstract class Mover : NetworkBehaviour
         // collides with an entity with the "Blocking" tag, we cannot move in this direction.
         if (moveDelta.y != 0)
         {
-            hit = Physics2D.BoxCast(centerPos, boxCollider.size - new Vector2(0.2f, 0), 0, new Vector2(0, 1), moveDelta.y, LayerMask.GetMask("Blocking"));
+            hit = Physics2D.BoxCast(centerPos, boxCollider.size, 0, new Vector2(0, 1), moveDelta.y, LayerMask.GetMask("Blocking"));
             if (hit.collider != null && !hit.collider.isTrigger)
             {
                 moveDelta.y = 0;
@@ -68,7 +69,7 @@ public abstract class Mover : NetworkBehaviour
         // Same as above, for x-direction
         if (moveDelta.x != 0)
         {
-            hit = Physics2D.BoxCast(centerPos, boxCollider.size - new Vector2(0, 0.2f), 0, new Vector2(1, 0), moveDelta.x, LayerMask.GetMask("Blocking"));
+            hit = Physics2D.BoxCast(centerPos, boxCollider.size, 0, new Vector2(1, 0), moveDelta.x, LayerMask.GetMask("Blocking"));
             if (hit.collider != null && !hit.collider.isTrigger)
             {
                 moveDelta.x = 0;
@@ -77,13 +78,19 @@ public abstract class Mover : NetworkBehaviour
         transform.Translate(moveDelta);
     }
 
+    public void OnDrawGizmos()
+    {
+        Vector2 centerPos = (Vector2)transform.position + boxCollider.offset;
+        Gizmos.DrawSphere(centerPos, 0.1f);
+    }
+
     [Command]
-    private void CmdLookLeft()
+    protected void CmdLookLeft()
     {
         spriteFacingLeft = false;
     }
     [Command]
-    private void CmdLookRight()
+    protected void CmdLookRight()
     {
         spriteFacingLeft = true;
     }

@@ -10,7 +10,7 @@ public class IceBlock : Interactable
     private SpriteRenderer sr;
     private BoxCollider2D boxCollider;
 
-
+    [Client]
     private void Awake()
     {
         particles = GetComponentInChildren<ParticleSystem>();
@@ -24,6 +24,7 @@ public class IceBlock : Interactable
         }
     }
 
+    [Client]
     protected override void InteractCallback()
     {
         // Check if the player can break ice
@@ -35,12 +36,12 @@ public class IceBlock : Interactable
         }
     }
 
-
     [Command(requiresAuthority = false)]
     private void CmdBreak()
     {
         Break();
     }
+
     [ClientRpc]
     async private void Break()
     {

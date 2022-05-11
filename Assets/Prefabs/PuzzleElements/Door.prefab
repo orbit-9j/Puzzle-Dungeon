@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  isOpen: 0
   doorOpen: {fileID: 1936299729582787226, guid: 1cd206ec511c6d64b89f310d10bce105, type: 3}
   doorClosed: {fileID: -6487658994968052278, guid: 9f81b18646e239c4caf65f620ca71a29, type: 3}
 --- !u!61 &4830962033749370504
