@@ -159,7 +159,7 @@ SpriteRenderer:
   m_SortingLayerID: 1743996839
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9039697925038676635, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+  m_Sprite: {fileID: 5042205087877932703, guid: 151ce9aa8f0f82545ae4f5420cd295a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,10 +188,11 @@ MonoBehaviour:
   interactCollider: {fileID: 1038428795187822355}
   interactKey: 101
   interactableText: Place Red Flag
-  spriteOn: {fileID: -9039697925038676635, guid: f009de04906173c4897a4bcc29e40273, type: 3}
-  spriteOff: {fileID: -9039697925038676635, guid: f009de04906173c4897a4bcc29e40273, type: 3}
+  spriteOn: {fileID: 5042205087877932703, guid: 151ce9aa8f0f82545ae4f5420cd295a9, type: 3}
+  spriteOff: {fileID: 5042205087877932703, guid: 151ce9aa8f0f82545ae4f5420cd295a9, type: 3}
   colour: 0
   flagSprite: {fileID: 8787283372746875223}
+  totemManager: {fileID: 0}
 --- !u!61 &8787283373798253097
 BoxCollider2D:
   m_ObjectHideFlags: 0

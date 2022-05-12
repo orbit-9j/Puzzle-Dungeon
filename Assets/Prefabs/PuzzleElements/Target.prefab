@@ -72,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1743996839
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -189171828823394397, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
+  m_Sprite: {fileID: 2482702600258781081, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -163,8 +163,8 @@ MonoBehaviour:
   interactCollider: {fileID: 290818964616854428}
   interactKey: 101
   interactableText: 
-  spriteOn: {fileID: -1360661646290046851, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
-  spriteOff: {fileID: -189171828823394397, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
+  spriteOn: {fileID: 736975673946055365, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
+  spriteOff: {fileID: 2482702600258781081, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
   openable: {fileID: 0}
   latching: 1
   arrow: {fileID: 0}

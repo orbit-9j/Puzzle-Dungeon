@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5737252850241010756, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
+  m_Sprite: {fileID: 8928406773916007348, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
   interactCollider: {fileID: 7933522949069727406}
   interactKey: 101
   interactableText: Dig
-  spriteOn: {fileID: 4630993167763828764, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
-  spriteOff: {fileID: -5737252850241010756, guid: aad5e02deb9784c4c80732ebc3065f9b, type: 3}
+  spriteOn: {fileID: -5752300075390171580, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
+  spriteOff: {fileID: 8928406773916007348, guid: 371ab084223a8bd4e8c60feacab05752, type: 3}
 --- !u!114 &-5703436669499872454
 MonoBehaviour:
   m_ObjectHideFlags: 0
