@@ -51,9 +51,6 @@ TagManager:
   - name: InteractablesBelowPlayer
     uniqueID: 1454286121
     locked: 0
-  - name: Player
-    uniqueID: 1994169187
-    locked: 0
   - name: InteractablesAbovePlayer
     uniqueID: 1743996839
     locked: 0
@@ -62,4 +59,7 @@ TagManager:
     locked: 0
   - name: WallDecorations
     uniqueID: 3013893059
+    locked: 0
+  - name: Player
+    uniqueID: 1994169187
     locked: 0

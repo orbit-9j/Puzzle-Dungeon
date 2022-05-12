@@ -17,7 +17,7 @@ public class RoomSpawner : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, waitTime); //delete spawn points (and their colliders) after rooms have spawned to save memory space
+        //Destroy(gameObject, waitTime); //delete spawn points (and their colliders) after rooms have spawned to save memory space
         templates = GameObject.FindGameObjectWithTag("Rooms")?.GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f); //call Spawn() with a time delay of 0.1 seconds to avoid all rooms spawning at once
     }

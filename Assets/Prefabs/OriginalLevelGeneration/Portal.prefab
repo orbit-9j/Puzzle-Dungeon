@@ -119,23 +119,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4648857159632958997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2dc23e143fe3d4aba257c1a3ef4628, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e680878006965146a8f9d85834c4d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  sceneNames:
-  - dungeon
-  - main
+  syncMode: 0
+  syncInterval: 0.1
+  destinationScene: Assets/Scenes/NewProcGenBasic 1.unity
+  startPosition: {x: 0, y: 0, z: 0}
+  label: {fileID: 0}
+  labelText: 

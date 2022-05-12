@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5340900618808530019}
   - component: {fileID: 5340900618808530020}
   - component: {fileID: 5340900618808530021}
-  - component: {fileID: 5340900618808530022}
+  - component: {fileID: 3028157653685323110}
+  - component: {fileID: 2692267308085088931}
   m_Layer: 0
   m_Name: PortalPurple
   m_TagString: Untagged
@@ -110,7 +111,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8017683, y: 1.6174536}
   m_EdgeRadius: 0
---- !u!114 &5340900618808530022
+--- !u!114 &3028157653685323110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,9 +120,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 5340900618808530023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2dc23e143fe3d4aba257c1a3ef4628, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2063b9e7c1403e343903b6c4e2f72f72
+  hasSpawned: 0
+--- !u!114 &2692267308085088931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5340900618808530023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a10c647e3494c2438646506fb7ccb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   filter:
     useTriggers: 0
     useLayerMask: 0
@@ -136,6 +156,3 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  sceneNames:
-  - dungeon
-  - main
