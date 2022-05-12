@@ -21,7 +21,7 @@ public class PlayerManager : NetworkBehaviour
     public struct Capabilities
     {
         // The abilities of the player
-        public bool DigHole, MoveCrate, BreakIce;
+        public bool DigHole, MoveCrate, BreakIce, ShootArrow;
     }
 
     public Capabilities capabilities = new Capabilities();
