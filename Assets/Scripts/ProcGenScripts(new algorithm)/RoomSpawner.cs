@@ -17,7 +17,6 @@ public class RoomSpawner : MonoBehaviour
 
     void Start()
     {
-        return;
         Destroy(gameObject, waitTime); //delete spawn points (and their colliders) after rooms have spawned to save memory space
         templates = GameObject.FindGameObjectWithTag("Rooms")?.GetComponent<RoomTemplates>();
         Invoke("Spawn", 0.1f); //call Spawn() with a time delay of 0.1 seconds to avoid all rooms spawning at once
@@ -25,7 +24,6 @@ public class RoomSpawner : MonoBehaviour
 
     void Spawn()
     {
-        return;
         if (spawned == false)
         {
             if (openingDirection == 1)
@@ -54,7 +52,6 @@ public class RoomSpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        return;
         if (other.CompareTag("RoomSpawn") /* && other.GetComponent<RoomSpawner>().spawned == true */)
         {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
