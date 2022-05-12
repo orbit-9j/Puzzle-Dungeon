@@ -78,12 +78,6 @@ public abstract class Mover : NetworkBehaviour
         transform.Translate(moveDelta);
     }
 
-    public void OnDrawGizmos()
-    {
-        Vector2 centerPos = (Vector2)transform.position + boxCollider.offset;
-        Gizmos.DrawSphere(centerPos, 0.1f);
-    }
-
     [Command]
     protected void CmdLookLeft()
     {

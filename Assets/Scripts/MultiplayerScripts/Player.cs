@@ -1,17 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 using Cinemachine;
 using Mirror;
 
 public class Player : Mover
 {
-    private CinemachineVirtualCamera virtualCamera;
+    public CinemachineVirtualCamera virtualCamera;
     [SerializeField]
     private Text interactText;
     [SerializeField]
     private Canvas uiCanvas;
+
+    public GameObject arrow;
 
     [SerializeField]
     private BoxCollider2D topOnly;
@@ -43,6 +46,33 @@ public class Player : Mover
             virtualCamera.Follow = this.transform;
         }
     }
+
+    [Client]
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && GetComponent<PlayerManager>().capabilities.ShootArrow)
+        {
+            CmdSpawnArrow(this);
+        }
+
+    }
+    [Command(requiresAuthority = false)]
+    private void CmdSpawnArrow(Player player)
+    {
+        Vector3 pos = Input.mousePosition;
+        pos.z = 1.0f;
+        Vector3 worldP = Camera.main.ScreenToWorldPoint(pos);
+        worldP.z = 0.0f;
+        GameObject spawnedArrow = Instantiate(arrow);
+        // Get Angle in Radians
+        float AngleRad = Mathf.Atan2(transform.position.y - worldP.y, transform.position.x - worldP.x);
+        // Get Angle in Degrees
+        float AngleDeg = (180 / Mathf.PI) * AngleRad + 90;
+        spawnedArrow.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+        // Rotate Object
+        spawnedArrow.transform.position = player.transform.position;
+    }
+
     [Client]
     private void FixedUpdate()
     {
@@ -82,87 +112,14 @@ public class Player : Mover
         }
 
         Vector2 moveDelta = Time.deltaTime * moveBase;
-        //Vector2 centerPos = (Vector2)transform.position + boxCollider.offset;
-        BoxCollider2D horizontalColl = null;
-        BoxCollider2D verticalColl = null;
-        BoxCollider2D cornerColl = null;
 
         // Cast a box, from the center of the mover's boxCollider, with the size of the boxCollider, 
         // along the y-axis, at a distance equal to that of the movement delta this frame. If this box
         // collides with an entity with the "Blocking" tag, we cannot move in this direction.
-        if (moveDelta.y > 0 && moveDelta.x > 0)
+        RaycastHit2D[] hits = Physics2D.BoxCastAll((Vector2)transform.position + boxCollider.offset, boxCollider.size, 0, input, moveDelta.magnitude, LayerMask.GetMask("Blocking"));
+        foreach (RaycastHit2D hit in hits)
         {
-
-            cornerColl = topRight;
-            horizontalColl = rightOnly;
-            verticalColl = topOnly;
-        }
-        else if (moveDelta.y > 0 && moveDelta.x < 0)
-        {
-
-            cornerColl = topLeft;
-            horizontalColl = leftOnly;
-            verticalColl = topOnly;
-        }
-        else if (moveDelta.y > 0 && moveDelta.x == 0)
-        {
-
-            verticalColl = topOnly;
-        }
-        else if (moveDelta.y == 0 && moveDelta.x > 0)
-        {
-
-            horizontalColl = rightOnly;
-        }
-        else if (moveDelta.y == 0 && moveDelta.x < 0)
-        {
-
-            horizontalColl = leftOnly;
-        }
-        else if (moveDelta.y < 0 && moveDelta.x == 0)
-        {
-
-            verticalColl = bottomOnly;
-        }
-        else if (moveDelta.y < 0 && moveDelta.x < 0)
-        {
-
-            cornerColl = bottomLeft;
-            horizontalColl = leftOnly;
-            verticalColl = bottomOnly;
-        }
-        else // To appease the compiler
-        {
-
-            cornerColl = bottomRight;
-            horizontalColl = rightOnly;
-            verticalColl = bottomOnly;
-        }
-        // Vertical movement check
-        LayerMask blockingMask = LayerMask.GetMask("Blocking");
-        if (verticalColl != null)
-        {
-            hit = BoxCast((Vector2)transform.position + verticalColl.offset, verticalColl.size, 0, new Vector2(0, input.y), moveDelta.y, blockingMask);
-            if (hit.collider != null && !hit.collider.isTrigger)
-            {
-                moveDelta.y = 0;
-            }
-        }
-        if (horizontalColl != null)
-        {
-            hit = BoxCast((Vector2)transform.position + horizontalColl.offset, horizontalColl.size, 0, new Vector2(input.x, 0), moveDelta.x, blockingMask);
-            if (hit.collider != null && !hit.collider.isTrigger)
-            {
-                moveDelta.x = 0;
-            }
-        }
-        if (cornerColl != null)
-        {
-            // hit = BoxCast((Vector2)transform.position + cornerColl.offset, cornerColl.size, 0, input, moveDelta.magnitude, blockingMask);
-            // if (hit.collider != null && !hit.collider.isTrigger)
-            // {
-            //     moveDelta = Vector2.zero;
-            // }
+            moveDelta = moveDelta - (moveDelta * hit.normal) * hit.normal;
         }
         GetComponent<Rigidbody2D>().MovePosition((Vector2)transform.position + moveDelta);
     }
@@ -184,59 +141,6 @@ public class Player : Mover
         interactText.gameObject.SetActive(false);
     }
 
-    static public RaycastHit2D BoxCast(Vector2 origen, Vector2 size, float angle, Vector2 direction, float distance, int mask)
-    {
-        RaycastHit2D hit = Physics2D.BoxCast(origen, size, angle, direction, distance, mask);
 
-        //Setting up the points to draw the cast
-        Vector2 p1, p2, p3, p4, p5, p6, p7, p8;
-        float w = size.x * 0.5f;
-        float h = size.y * 0.5f;
-        p1 = new Vector2(-w, h);
-        p2 = new Vector2(w, h);
-        p3 = new Vector2(w, -h);
-        p4 = new Vector2(-w, -h);
-
-        Quaternion q = Quaternion.AngleAxis(angle, new Vector3(0, 0, 1));
-        p1 = q * p1;
-        p2 = q * p2;
-        p3 = q * p3;
-        p4 = q * p4;
-
-        p1 += origen;
-        p2 += origen;
-        p3 += origen;
-        p4 += origen;
-
-        Vector2 realDistance = direction.normalized * distance;
-        p5 = p1 + realDistance;
-        p6 = p2 + realDistance;
-        p7 = p3 + realDistance;
-        p8 = p4 + realDistance;
-
-
-        //Drawing the cast
-        Color castColor = hit ? Color.red : Color.green;
-        Debug.DrawLine(p1, p2, castColor);
-        Debug.DrawLine(p2, p3, castColor);
-        Debug.DrawLine(p3, p4, castColor);
-        Debug.DrawLine(p4, p1, castColor);
-
-        Debug.DrawLine(p5, p6, castColor);
-        Debug.DrawLine(p6, p7, castColor);
-        Debug.DrawLine(p7, p8, castColor);
-        Debug.DrawLine(p8, p5, castColor);
-
-        Debug.DrawLine(p1, p5, Color.grey);
-        Debug.DrawLine(p2, p6, Color.grey);
-        Debug.DrawLine(p3, p7, Color.grey);
-        Debug.DrawLine(p4, p8, Color.grey);
-        if (hit)
-        {
-            Debug.DrawLine(hit.point, hit.point + hit.normal.normalized * 0.2f, Color.yellow);
-        }
-
-        return hit;
-    }
 }
 

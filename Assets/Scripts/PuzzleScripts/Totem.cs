@@ -8,6 +8,7 @@ public class Totem : Switch
 {
     public Flag.Colour colour = Flag.Colour.Red; // Set a default colour
     public GameObject flagSprite;
+    public TotemManager totemManager;
 
     [Client]
     protected override void InteractCallback()
@@ -67,7 +68,6 @@ public class Totem : Switch
     {
         // Runs on server, a lot of duplicated code, should be changed
         // Simply adds the correct flag to the totem, if appropriate
-        TotemManager totemManager = GameObject.Find("TotemManager").GetComponent<TotemManager>();
         switch (colour)
         {
             case Flag.Colour.Red:
