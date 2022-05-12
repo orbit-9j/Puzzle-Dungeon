@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    //no functionality to populate teams broser or to enter private game password yet - will implement after multiplayer functionality 
+    //no functionality to populate teams browser or to enter private game password yet - will implement after multiplayer functionality 
     //the back button in the teams screen doesn't work correctly because idk how the game will know if you got there from the host or join screen
 
     public void NextScene()

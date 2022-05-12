@@ -9,6 +9,7 @@ public class OurNetworkManager : NetworkManager
 
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
+        playerSpawn = GameObject.Find("PlayerSpawn").transform;
         GameObject player = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
         NetworkServer.AddPlayerForConnection(conn, player);
     }

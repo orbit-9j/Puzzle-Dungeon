@@ -6,7 +6,7 @@ public abstract class Mover : NetworkBehaviour
 
     protected BoxCollider2D boxCollider;
     public RaycastHit2D hit;
-    protected Vector2 speed = new Vector2(5.0f, 5.0f);
+    protected Vector2 speed = new Vector2(7.0f, 7.0f);
     public float slowFactor = 1.0f; // A factor by which movement is slowed (multiplier)
     public Animator animator;
 
