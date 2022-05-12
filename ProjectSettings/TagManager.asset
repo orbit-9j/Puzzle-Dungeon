@@ -8,6 +8,7 @@ TagManager:
   - RoomSpawn
   - Crate
   - Rooms
+  - Arrows
   layers:
   - Default
   - TransparentFX

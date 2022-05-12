@@ -464,7 +464,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5056845711071452938}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -528,6 +528,7 @@ MonoBehaviour:
     DigHole: 0
     MoveCrate: 1
     BreakIce: 0
+    ShootArrow: 0
 --- !u!114 &6199898827086844228
 MonoBehaviour:
   m_ObjectHideFlags: 0

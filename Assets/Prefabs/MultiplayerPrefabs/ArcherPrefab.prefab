@@ -375,7 +375,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3570833230811211389}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -489,8 +489,10 @@ MonoBehaviour:
   syncInterval: 0.1
   slowFactor: 1
   animator: {fileID: 6872617109968558569}
+  virtualCamera: {fileID: 0}
   interactText: {fileID: 8564763745062448282}
   uiCanvas: {fileID: 5518732126129817013}
+  arrow: {fileID: 621117523427102152, guid: 14b61dfce93648c4398988fe4b70cdd3, type: 3}
   topOnly: {fileID: 1837518593151134071}
   topLeft: {fileID: 7239847871255664562}
   topRight: {fileID: 4596535620123883130}

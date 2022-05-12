@@ -7,9 +7,9 @@ using Mirror;
 public class Collidable : NetworkBehaviour
 {
     [SerializeField]
-    private ContactFilter2D filter;
-    private BoxCollider2D boxCollider;
-    private List<Collider2D> hits = new List<Collider2D>();
+    protected ContactFilter2D filter;
+    protected BoxCollider2D boxCollider;
+    protected List<Collider2D> hits = new List<Collider2D>();
     protected virtual void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
