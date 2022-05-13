@@ -72,15 +72,19 @@ public class Totem : Switch
         {
             case Flag.Colour.Red:
                 totemManager.flags.red = true;
+                totemManager.TryOpen();
                 break;
             case Flag.Colour.Orange:
                 totemManager.flags.orange = true;
+                totemManager.TryOpen();
                 break;
             case Flag.Colour.Purple:
                 totemManager.flags.purple = true;
+                totemManager.TryOpen();
                 break;
             case Flag.Colour.Green:
                 totemManager.flags.green = true;
+                totemManager.TryOpen();
                 break;
         }
         RpcSetFlagActive();

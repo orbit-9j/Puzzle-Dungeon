@@ -12,6 +12,7 @@ public class Door : Openable
     [Client]
     protected override void SetCloseState()
     {
+        Debug.Log("Door");
         GetComponent<SpriteRenderer>().sprite = doorClosed;
         GetComponent<BoxCollider2D>().enabled = true;
     }

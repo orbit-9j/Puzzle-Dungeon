@@ -11,7 +11,7 @@ public class IceBlock : Interactable
     private BoxCollider2D boxCollider;
 
     [Client]
-    private void Awake()
+    private void Start()
     {
         particles = GetComponentInChildren<ParticleSystem>();
         sr = GetComponent<SpriteRenderer>();

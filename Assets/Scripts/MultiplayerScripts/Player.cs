@@ -50,27 +50,40 @@ public class Player : Mover
     [Client]
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && GetComponent<PlayerManager>().capabilities.ShootArrow)
+        if (isLocalPlayer && Input.GetMouseButtonDown(0) && this.GetComponent<PlayerManager>().capabilities.ShootArrow)
         {
-            CmdSpawnArrow(this);
+            Vector3 pos = Input.mousePosition;
+            pos.z = 1.0f;
+            Vector3 worldP = Camera.main.ScreenToWorldPoint(pos);
+            worldP.z = 0.0f;
+            GameObject spawnedArrow = Instantiate(arrow);
+            NetworkServer.Spawn(spawnedArrow);
+            // Get Angle in Radians
+            float AngleRad = Mathf.Atan2(transform.position.y - worldP.y, transform.position.x - worldP.x);
+            // Get Angle in Degrees
+            float AngleDeg = (180 / Mathf.PI) * AngleRad + 90;
+            Quaternion spawnAngle = Quaternion.Euler(0, 0, AngleDeg);
+            // Rotate Object
+            Vector3 spawnPos = transform.position;
+            CmdSpawnArrow(spawnPos, spawnAngle, this);
         }
 
     }
-    [Command(requiresAuthority = false)]
-    private void CmdSpawnArrow(Player player)
+    [Command]
+    private void CmdSpawnArrow(Vector3 pos, Quaternion angl, Player player)
     {
-        Vector3 pos = Input.mousePosition;
-        pos.z = 1.0f;
-        Vector3 worldP = Camera.main.ScreenToWorldPoint(pos);
-        worldP.z = 0.0f;
-        GameObject spawnedArrow = Instantiate(arrow);
-        // Get Angle in Radians
-        float AngleRad = Mathf.Atan2(transform.position.y - worldP.y, transform.position.x - worldP.x);
-        // Get Angle in Degrees
-        float AngleDeg = (180 / Mathf.PI) * AngleRad + 90;
-        spawnedArrow.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-        // Rotate Object
-        spawnedArrow.transform.position = player.transform.position;
+        if (isServer)
+        {
+            GameObject spawnedArrow = Instantiate(arrow);
+            NetworkServer.Spawn(spawnedArrow);
+            SetArrowPos(spawnedArrow, pos, angl);
+        }
+    }
+    [ClientRpc]
+    private void SetArrowPos(GameObject spawnedArrow, Vector3 pos, Quaternion angl)
+    {
+        spawnedArrow.transform.rotation = angl;
+        spawnedArrow.transform.position = pos;
     }
 
     [Client]

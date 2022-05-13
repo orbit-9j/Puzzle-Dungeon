@@ -14,13 +14,13 @@ public class NetworkedRoom : NetworkBehaviour
     {
         Debug.Log(trans.name);
         NetworkServer.Spawn(trans.gameObject);
-        if (trans.childCount == 0 || trans.gameObject.GetComponent<NetworkIdentity>() != null)
-        {   
+        if (trans.childCount == 0 || trans.gameObject.GetComponent<NetworkIdentity>() == null)
+        {
             return;
         }
         foreach (Transform childTran in trans)
         {
-            Destroy(childTran);
+            //Destroy(childTran);
             spawnChildPrefabs(childTran);
         }
     }
