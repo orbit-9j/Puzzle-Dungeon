@@ -67,12 +67,14 @@ MonoBehaviour:
   - {fileID: 5056845711071452938, guid: 9d09f85d6d70f9c4c88d1959f991b71b, type: 3}
   - {fileID: 1363448530847117434, guid: 63e8080b843a81543804332cc1ac33bf, type: 3}
   - {fileID: 2215562171987304828, guid: 6cc2ff5a024cbc540bd098da84884d67, type: 3}
+  - {fileID: 621117523427102152, guid: 14b61dfce93648c4398988fe4b70cdd3, type: 3}
+  - {fileID: 1912532680051385132, guid: f12c37125e489ab488cdf8b05dc6b099, type: 3}
+  - {fileID: 5485952049954403686, guid: 535de006073ad034991adaec45f4dc26, type: 3}
+  - {fileID: 8365481712910649858, guid: eb72f9335ad66224d8a0d105b85622fd, type: 3}
+  - {fileID: 4830962033749370500, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
+  - {fileID: 3559768449217115725, guid: 2df163c7f4147be478f17ec45d2c1177, type: 3}
+  - {fileID: 5707993273201269617, guid: f0fecb2501c056643a0892d7b4690106, type: 3}
   playerSpawn: {fileID: 0}
-  players:
-  - {fileID: 3570833230811211389, guid: 1d9687fdaa2cb9249a9304c8f95bc179, type: 3}
-  - {fileID: 5056845711071452938, guid: 9d09f85d6d70f9c4c88d1959f991b71b, type: 3}
-  - {fileID: 1363448530847117434, guid: 63e8080b843a81543804332cc1ac33bf, type: 3}
-  - {fileID: 2215562171987304828, guid: 6cc2ff5a024cbc540bd098da84884d67, type: 3}
 --- !u!114 &1993603376033353587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f2fd703d8d3ea43a321bce2f5d2935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   networkManager: {fileID: 1993603376033353586}
   menuPanel: {fileID: 8600357460623012487}
   gamePanel: {fileID: 7248528948526861963}
