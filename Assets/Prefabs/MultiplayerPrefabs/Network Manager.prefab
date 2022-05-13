@@ -75,6 +75,11 @@ MonoBehaviour:
   - {fileID: 3559768449217115725, guid: 2df163c7f4147be478f17ec45d2c1177, type: 3}
   - {fileID: 5707993273201269617, guid: f0fecb2501c056643a0892d7b4690106, type: 3}
   playerSpawn: {fileID: 0}
+  availablePlayers:
+  - {fileID: 3570833230811211389, guid: 1d9687fdaa2cb9249a9304c8f95bc179, type: 3}
+  - {fileID: 5056845711071452938, guid: 9d09f85d6d70f9c4c88d1959f991b71b, type: 3}
+  - {fileID: 1363448530847117434, guid: 63e8080b843a81543804332cc1ac33bf, type: 3}
+  - {fileID: 2215562171987304828, guid: 6cc2ff5a024cbc540bd098da84884d67, type: 3}
 --- !u!114 &1993603376033353587
 MonoBehaviour:
   m_ObjectHideFlags: 0

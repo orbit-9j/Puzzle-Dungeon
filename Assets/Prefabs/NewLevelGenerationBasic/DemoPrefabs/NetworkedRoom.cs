@@ -20,6 +20,7 @@ public class NetworkedRoom : NetworkBehaviour
         }
         foreach (Transform childTran in trans)
         {
+            Destroy(childTran);
             spawnChildPrefabs(childTran);
         }
     }
