@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NewProcGenBasic.unity
     guid: 87dcdb902fd427d4984d9f96c137ccbb
   - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: d8c1160c9e3e66f4ba8a1ba93491869d
+  - enabled: 1
     path: Assets/Scenes/Menu/Unused/Leaderboard.unity
     guid: ae3b14d577da25f4283a66eed864dfc6
   m_configObjects: {}
