@@ -82,8 +82,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677633428564280912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: -1.33, y: 9.33, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 2215562171987304830}
   m_RootOrder: 1
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 56fffa378619a92409001fbc65973162, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d13ae39126d52b74aa139ae673aa5e1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1132335401420139161}
   - component: {fileID: 7242603666957170659}
   m_Layer: 7
-  m_Name: PlayerMultiplayer
+  m_Name: WizardPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,9 +219,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1994169187
-  m_SortingLayer: 5
+  m_SortingLayer: 2
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 56fffa378619a92409001fbc65973162, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d13ae39126d52b74aa139ae673aa5e1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -247,7 +247,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00066420436, y: -0.31251734}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0.0625, w: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1.75}
     newSize: {x: 0.16, y: 0.2}
@@ -303,6 +303,7 @@ MonoBehaviour:
     DigHole: 1
     MoveCrate: 1
     BreakIce: 1
+    ShootArrow: 0
 --- !u!114 &2918542253152448371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,8 +353,10 @@ MonoBehaviour:
   syncInterval: 0.1
   slowFactor: 1
   animator: {fileID: 7242603666957170659}
+  virtualCamera: {fileID: 0}
   interactText: {fileID: 5725261079186762721}
   uiCanvas: {fileID: 6486467969674980178}
+  arrow: {fileID: 0}
   topOnly: {fileID: 5364389984893723786}
   topLeft: {fileID: 320275663589895592}
   topRight: {fileID: 5804330646631835013}
@@ -406,7 +409,7 @@ Animator:
   m_GameObject: {fileID: 2215562171987304828}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 82f250fe4e870b945922e3e4b31aa44e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e255ad95d8a2734691b47e766d1e7a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

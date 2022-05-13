@@ -27,7 +27,7 @@ public class RoomTemplates : MonoBehaviour
 
     private bool spawnedExit; 
 
-    public float waitTime = 4; 
+    public float waitTime = 5; 
     
 
     void Update()

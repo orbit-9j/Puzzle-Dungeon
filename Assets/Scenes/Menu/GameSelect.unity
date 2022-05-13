@@ -265,5 +265,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Network Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2290834400799006973, guid: ede8df2b7fa3e1145bc74acf8a06ddcc, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3068752531048097976, guid: ede8df2b7fa3e1145bc74acf8a06ddcc, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911600553488455714, guid: ede8df2b7fa3e1145bc74acf8a06ddcc, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ede8df2b7fa3e1145bc74acf8a06ddcc, type: 3}
