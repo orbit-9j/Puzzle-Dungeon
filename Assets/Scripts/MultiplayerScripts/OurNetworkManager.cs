@@ -9,7 +9,9 @@ public class OurNetworkManager : NetworkManager
     //private GameObject player;
     private List<GameObject> players = new List<GameObject>(); //list of player classes already instantiated
 
-    void Start(){
+    public override void Start()
+    {
+        base.Start();
         //shuffle list of spawnable player prefabs to randomly assign player class on join
         for (int i = 0; i < spawnPrefabs.Count - 1; i++)
         {
@@ -19,19 +21,23 @@ public class OurNetworkManager : NetworkManager
             spawnPrefabs[rand] = temp;
         }
     }
+
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         playerSpawn = GameObject.Find("PlayerSpawn").transform;
 
         //go through each player class and check if it's already been spawned. if not, spawn it, if yes, move on to the next one. avoids duplicate classes
-        for (int i = 0; i < spawnPrefabs.Count; i++) {
+        for (int i = 0; i < spawnPrefabs.Count; i++)
+        {
             //Debug.Log(players.Contains(spawnPrefabs[i])); //seems to break here
-            if (!players.Contains(spawnPrefabs[i])){
+            if (!players.Contains(spawnPrefabs[i]))
+            {
                 playerPrefab = spawnPrefabs[i];
                 players.Add(spawnPrefabs[i]);
                 break;
             }
-            else{
+            else
+            {
                 Debug.Log("player class already exists, spawning different one");
             }
         }
@@ -45,18 +51,18 @@ public class OurNetworkManager : NetworkManager
     }
 
     //ideally, delete the prefab from the list if a player disconnects so they can become that class again when they reconnect. but it doesn't work 
-    
-   /*  public override void OnStopClient(){
-        GameObject localPlayer = NetworkClient.localPlayer.gameObject;
-        players.Remove(localPlayer);
-    } */
-   /*  public override void OnClientDisconnect()
-        {
-            if (mode == NetworkManagerMode.Offline)
-                return;
 
-            GameObject localPlayer = NetworkClient.localPlayer.gameObject;
-            players.Remove(localPlayer);
-            StopClient();
-        } */
+    /*  public override void OnStopClient(){
+         GameObject localPlayer = NetworkClient.localPlayer.gameObject;
+         players.Remove(localPlayer);
+     } */
+    /*  public override void OnClientDisconnect()
+         {
+             if (mode == NetworkManagerMode.Offline)
+                 return;
+
+             GameObject localPlayer = NetworkClient.localPlayer.gameObject;
+             players.Remove(localPlayer);
+             StopClient();
+         } */
 }

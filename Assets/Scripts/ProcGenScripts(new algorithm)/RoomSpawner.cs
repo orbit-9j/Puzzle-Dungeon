@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
 //following the 3-part tutorial found at  https://www.youtube.com/watch?v=qAf9axsyijY
 //sample code found at https://github.com/BlackthornProd/Random-Dungeon-Generation/tree/master/IsaacGenTut/Assets/Scripts  
@@ -11,9 +12,7 @@ public class RoomSpawner : MonoBehaviour
     private RoomTemplates templates;
     private int rand;
     private bool spawned = false;
-
     public float waitTime = 4f;
-
 
     void Start()
     {

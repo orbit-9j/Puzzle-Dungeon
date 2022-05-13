@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6891990987383870032}
   - component: {fileID: 2482676149307810784}
   - component: {fileID: 2749794875049548377}
+  - component: {fileID: 8153724029586284470}
   m_Layer: 3
   m_Name: BackWall
   m_TagString: Untagged
@@ -553,6 +554,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8153724029586284470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876270607581017432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
 --- !u!1 &3428727300887618529
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +583,7 @@ GameObject:
   - component: {fileID: 255315805617202148}
   - component: {fileID: 3259509891946186919}
   - component: {fileID: 8683482666840339853}
+  - component: {fileID: 8599220941208898261}
   m_Layer: 3
   m_Name: BackDecor
   m_TagString: Untagged
@@ -736,6 +755,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &8599220941208898261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3428727300887618529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
 --- !u!1 &4026671020769065886
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +784,7 @@ GameObject:
   - component: {fileID: 574294937441506585}
   - component: {fileID: 2218812698693601219}
   - component: {fileID: 976789907744044235}
+  - component: {fileID: 3248392097369874931}
   m_Layer: 3
   m_Name: FrontDecor
   m_TagString: Untagged
@@ -919,6 +956,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3248392097369874931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4026671020769065886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
 --- !u!1 &7762169043625526335
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +985,7 @@ GameObject:
   - component: {fileID: 7762169043625526332}
   - component: {fileID: 7762169043625526333}
   - component: {fileID: 2992295758054033873}
+  - component: {fileID: 7418851989688082132}
   m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
@@ -2380,6 +2435,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &7418851989688082132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762169043625526335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
 --- !u!1 &7762169044085321440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,6 +2462,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7762169044085321447}
   - component: {fileID: 9089746001919848615}
+  - component: {fileID: -5551132572134999373}
+  - component: {fileID: -1874422120268968315}
   m_Layer: 0
   m_Name: Right_Bot
   m_TagString: Untagged
@@ -2455,6 +2529,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb0cafa0d220548bc0bc4caeb5349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5551132572134999373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762169044085321440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
+--- !u!114 &-1874422120268968315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762169044085321440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf38bf95ca1166945b298707a9936c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &7762169045101515711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2619,7 @@ GameObject:
   - component: {fileID: 7762169045264705645}
   - component: {fileID: 7762169045264705635}
   - component: {fileID: 7762169045264705644}
+  - component: {fileID: 3785269540232187595}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -4377,6 +4483,23 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &3785269540232187595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762169045264705646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: def4d681fc4de17468368767d8067c13
+  hasSpawned: 0
 --- !u!1001 &818836454345547448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5057,6 +5180,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5302931657469140154, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514414949903811628, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
 --- !u!4 &1191435473733180937 stripped
@@ -5560,6 +5691,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7762169044085321447}
     m_Modifications:
+    - target: {fileID: -4232948164836053613, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334453722846829090, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
     - target: {fileID: 7555063099923982902, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
       propertyPath: m_Name
       value: SpawnPoint Centre
@@ -5688,6 +5827,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7762169044085321447}
     m_Modifications:
+    - target: {fileID: -7819501430481955233, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889092791591256815, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
+      propertyPath: m_AssetId
+      value: def4d681fc4de17468368767d8067c13
+      objectReference: {fileID: 0}
     - target: {fileID: 4903335887657753980, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
       propertyPath: m_RootOrder
       value: 3

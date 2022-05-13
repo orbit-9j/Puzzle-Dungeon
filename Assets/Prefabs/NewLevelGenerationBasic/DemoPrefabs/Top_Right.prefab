@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7295108680622435597}
   - component: {fileID: 1101164413605803655}
   - component: {fileID: 4467815851514915344}
+  - component: {fileID: 5207185878184010683}
   m_Layer: 3
   m_Name: FrontDecor
   m_TagString: Untagged
@@ -183,6 +184,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &5207185878184010683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194337540683938592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
 --- !u!1 &1269574272207909581
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +213,7 @@ GameObject:
   - component: {fileID: 615061715401266073}
   - component: {fileID: 5411903218612172258}
   - component: {fileID: 682757565358394702}
+  - component: {fileID: 3300591970377542662}
   m_Layer: 3
   m_Name: BackWall
   m_TagString: Untagged
@@ -916,6 +935,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3300591970377542662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269574272207909581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
 --- !u!1 &4617636037553013689
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +962,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4617636037553013694}
   - component: {fileID: -7405091293140554485}
+  - component: {fileID: -6127991315208523576}
+  - component: {fileID: -2340894792799215773}
   m_Layer: 0
   m_Name: Top_Right
   m_TagString: Untagged
@@ -963,6 +1001,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb0cafa0d220548bc0bc4caeb5349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6127991315208523576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617636037553013689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
+--- !u!114 &-2340894792799215773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617636037553013689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf38bf95ca1166945b298707a9936c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &4617636037985454195
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +1044,7 @@ GameObject:
   - component: {fileID: 4617636037985454198}
   - component: {fileID: 4617636037985454193}
   - component: {fileID: 4804526541006091365}
+  - component: {fileID: 5033445850888654068}
   m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
@@ -2784,6 +2854,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &5033445850888654068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617636037985454195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
 --- !u!1 &4617636038202938474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +2882,7 @@ GameObject:
   - component: {fileID: 4617636038202938475}
   - component: {fileID: 4617636038202938473}
   - component: {fileID: 4617636038202938472}
+  - component: {fileID: 227780740211655786}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -5118,6 +5206,23 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &227780740211655786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617636038202938474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
 --- !u!1 &4617636038440958634
 GameObject:
   m_ObjectHideFlags: 0
@@ -5178,6 +5283,7 @@ GameObject:
   - component: {fileID: 6141983181358641988}
   - component: {fileID: 7370857861226038436}
   - component: {fileID: 3198523274269801763}
+  - component: {fileID: 3230434983956873444}
   m_Layer: 3
   m_Name: BackDecor
   m_TagString: Untagged
@@ -5449,6 +5555,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3230434983956873444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820801552139331084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d21e1d0754b57b14185e5cd392294f6f
+  hasSpawned: 0
 --- !u!1001 &910048591380250141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5456,6 +5579,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4617636037553013694}
     m_Modifications:
+    - target: {fileID: -4232948164836053613, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334453722846829090, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
+      objectReference: {fileID: 0}
     - target: {fileID: 7555063099923982902, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
       propertyPath: m_Name
       value: SpawnPoint Centre
@@ -5566,6 +5697,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5302931657469140154, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514414949903811628, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63f81feec07f4e147836f19ed23f95b4, type: 3}
 --- !u!4 &8488525558729696333 stripped
@@ -5580,6 +5719,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4617636037553013694}
     m_Modifications:
+    - target: {fileID: -6433321747233842078, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
+      objectReference: {fileID: 0}
     - target: {fileID: 2130332838705620816, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5627,6 +5770,10 @@ PrefabInstance:
     - target: {fileID: 2130332838705620819, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
       propertyPath: m_Name
       value: SpawnPoint B
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546276760754529804, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
+      propertyPath: m_AssetId
+      value: d21e1d0754b57b14185e5cd392294f6f
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}

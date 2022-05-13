@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8055299702457710446}
   - component: {fileID: 6742883372964767171}
   - component: {fileID: 8170736264458794578}
+  - component: {fileID: 5144761549928914317}
   m_Layer: 3
   m_Name: BackDecor
   m_TagString: Untagged
@@ -183,6 +184,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &5144761549928914317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5368951093092186643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
 --- !u!1 &5940601382618351667
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +213,7 @@ GameObject:
   - component: {fileID: 4391216052500497606}
   - component: {fileID: 5585614079063897942}
   - component: {fileID: 185350096003020110}
+  - component: {fileID: 3086210637617172521}
   m_Layer: 3
   m_Name: BackWall
   m_TagString: Untagged
@@ -666,6 +685,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &3086210637617172521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5940601382618351667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
 --- !u!1 &6151955019935353069
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +714,7 @@ GameObject:
   - component: {fileID: 3015538226558048060}
   - component: {fileID: 1504580155864331612}
   - component: {fileID: 9051997285820951658}
+  - component: {fileID: 7522025182119417656}
   m_Layer: 3
   m_Name: FrontDecor
   m_TagString: Untagged
@@ -849,6 +886,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &7522025182119417656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151955019935353069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
 --- !u!1 &6637924539374109018
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +914,7 @@ GameObject:
   - component: {fileID: 6637924539374109019}
   - component: {fileID: 6637924539374109017}
   - component: {fileID: 6637924539374109016}
+  - component: {fileID: 7161330581875338896}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -3439,6 +3494,23 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &7161330581875338896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637924539374109018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
 --- !u!1 &6637924540163911858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3499,6 +3571,7 @@ GameObject:
   - component: {fileID: 6637924540237455570}
   - component: {fileID: 6637924540237455573}
   - component: {fileID: 1640996235631523240}
+  - component: {fileID: 1487823550927941702}
   m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
@@ -5418,6 +5491,23 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &1487823550927941702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637924540237455575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
 --- !u!1 &6637924541243497945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,6 +5518,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6637924541243497942}
   - component: {fileID: -890602758892608313}
+  - component: {fileID: -4884968382076769657}
+  - component: {fileID: -1417121787678409778}
   m_Layer: 0
   m_Name: Left_Bot
   m_TagString: Untagged
@@ -5495,6 +5587,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb0cafa0d220548bc0bc4caeb5349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4884968382076769657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637924541243497945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 2345753345aa36e4984693c390a8583f
+  hasSpawned: 0
+--- !u!114 &-1417121787678409778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637924541243497945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf38bf95ca1166945b298707a9936c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1001 &56384782492770397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5766,11 +5889,6 @@ PrefabInstance:
       objectReference: {fileID: -5147227984005350219, guid: 3390026e866d9ef4a8327c5a126ed06d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
---- !u!4 &5396841215439141708 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4830962033749370501, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-  m_PrefabInstance: {fileID: 715623886748147145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5396841215439141699 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4830962033749370506, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
@@ -5782,6 +5900,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1a1b5ebefc2f946aacb1711ac32120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5396841215439141708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4830962033749370501, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
+  m_PrefabInstance: {fileID: 715623886748147145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &920192348707240631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5855,6 +5978,11 @@ PrefabInstance:
       objectReference: {fileID: -5147227984005350219, guid: 3390026e866d9ef4a8327c5a126ed06d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
+--- !u!4 &5750578094448417842 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4830962033749370501, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
+  m_PrefabInstance: {fileID: 920192348707240631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5750578094448417853 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4830962033749370506, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
@@ -5866,11 +5994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1a1b5ebefc2f946aacb1711ac32120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5750578094448417842 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4830962033749370501, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-  m_PrefabInstance: {fileID: 920192348707240631}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1058878341696711963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6274,6 +6397,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6637924541243497942}
     m_Modifications:
+    - target: {fileID: -7819501430481955233, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889092791591256815, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
+      objectReference: {fileID: 0}
     - target: {fileID: 4903335887657753980, guid: c70d14bd77b798e4390b6d98751ff217, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6534,6 +6665,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6637924541243497942}
     m_Modifications:
+    - target: {fileID: -277746433880226087, guid: 6f10bbca3ba6d9e45a17af181f57ab2f, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
+      objectReference: {fileID: 0}
     - target: {fileID: 318100097795536044, guid: 6f10bbca3ba6d9e45a17af181f57ab2f, type: 3}
       propertyPath: m_Name
       value: SpawnPoint R
@@ -6581,6 +6716,10 @@ PrefabInstance:
     - target: {fileID: 318100097795536045, guid: 6f10bbca3ba6d9e45a17af181f57ab2f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506434577715438628, guid: 6f10bbca3ba6d9e45a17af181f57ab2f, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f10bbca3ba6d9e45a17af181f57ab2f, type: 3}
@@ -7594,6 +7733,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6637924541243497942}
     m_Modifications:
+    - target: {fileID: -4232948164836053613, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
+      objectReference: {fileID: 0}
+    - target: {fileID: 3334453722846829090, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: 2345753345aa36e4984693c390a8583f
+      objectReference: {fileID: 0}
     - target: {fileID: 7555063099923982902, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
       propertyPath: m_Name
       value: SpawnPoint Centre

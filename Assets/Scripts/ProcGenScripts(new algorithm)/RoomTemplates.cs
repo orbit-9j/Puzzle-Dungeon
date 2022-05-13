@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using Mirror;
 
 public class RoomTemplates : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject[] bottomRooms;
     public GameObject[] rightRooms;
     public GameObject[] leftRooms; */
-    
+
     public GameObject rightRoomExit;
     public GameObject leftRoomExit;
     public GameObject topRoomExit;
@@ -25,10 +26,10 @@ public class RoomTemplates : MonoBehaviour
 
     public List<GameObject> rooms;
 
-    private bool spawnedExit; 
+    private bool spawnedExit;
 
-    public float waitTime = 5; 
-    
+    public float waitTime = 5f;
+
 
     void Update()
     {
@@ -45,34 +46,35 @@ public class RoomTemplates : MonoBehaviour
                     Transform SpawnB = rooms[i].transform.Find("SpawnPoint B");
 
                     //because of this issue, i check if the current and previous rooms connect. if they don't i spawn a generic exit room with all exits to make sure that the exit room is never blocked off, like it sometimes happens if i don't do this check
-                    Transform PrevSpawnL = rooms[i-1].transform.Find("SpawnPoint L");
-                    Transform PrevSpawnR = rooms[i-1].transform.Find("SpawnPoint R");
-                    Transform PrevSpawnT = rooms[i-1].transform.Find("SpawnPoint T");
-                    Transform PrevSpawnB = rooms[i-1].transform.Find("SpawnPoint B");
+                    Transform PrevSpawnL = rooms[i - 1].transform.Find("SpawnPoint L");
+                    Transform PrevSpawnR = rooms[i - 1].transform.Find("SpawnPoint R");
+                    Transform PrevSpawnT = rooms[i - 1].transform.Find("SpawnPoint T");
+                    Transform PrevSpawnB = rooms[i - 1].transform.Find("SpawnPoint B");
 
-                    if (SpawnL != null & PrevSpawnR != null){
+                    if (SpawnL != null & PrevSpawnR != null)
+                    {
                         Instantiate(rightRoomExit, rooms[i].transform.position, Quaternion.identity);
-
                     }
-                    else if (SpawnR != null &  PrevSpawnL != null){
+                    else if (SpawnR != null & PrevSpawnL != null)
+                    {
                         Instantiate(leftRoomExit, rooms[i].transform.position, Quaternion.identity);
 
                     }
-                    else if (SpawnT != null & PrevSpawnB != null){
+                    else if (SpawnT != null & PrevSpawnB != null)
+                    {
                         Instantiate(bottomRoomExit, rooms[i].transform.position, Quaternion.identity);
 
                     }
-                    else if (SpawnB != null & PrevSpawnT != null){
+                    else if (SpawnB != null & PrevSpawnT != null)
+                    {
                         Instantiate(topRoomExit, rooms[i].transform.position, Quaternion.identity);
-
                     }
-                    else{
+                    else
+                    {
                         Instantiate(exitRoom, rooms[i].transform.position, Quaternion.identity); //generic room in case the rom generation fuckery happens
                     }
-                    
                     Destroy(rooms[i]);
                     spawnedExit = true;
-                    
                 }
             }
         }

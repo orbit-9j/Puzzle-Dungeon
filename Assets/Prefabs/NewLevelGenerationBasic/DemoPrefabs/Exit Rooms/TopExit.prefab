@@ -157,7 +157,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1096741691
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1117,6 +1117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8774179813808420972}
   - component: {fileID: 7937220707864566377}
+  - component: {fileID: -8805954562089337604}
   m_Layer: 0
   m_Name: TopExit
   m_TagString: Untagged
@@ -1155,6 +1156,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acb0cafa0d220548bc0bc4caeb5349e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8805954562089337604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774179813808420973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 8b7f5a188c39e2042b78ebf023e61899
+  hasSpawned: 0
 --- !u!1 &8774179814723595445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2828,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1096741691
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -5099,6 +5117,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2546276760754529804, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
+      propertyPath: m_AssetId
+      value: 8b7f5a188c39e2042b78ebf023e61899
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7470dd94c9d7e479c2a15d66a35e6d, type: 3}
 --- !u!4 &1821346557997291917 stripped
@@ -5113,6 +5135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8774179813808420972}
     m_Modifications:
+    - target: {fileID: -4232948164836053613, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
+      propertyPath: m_AssetId
+      value: 8b7f5a188c39e2042b78ebf023e61899
+      objectReference: {fileID: 0}
     - target: {fileID: 7555063099923982902, guid: f8c931cdc38b0874dadaee7df164a0e4, type: 3}
       propertyPath: m_Name
       value: SpawnPoint Centre

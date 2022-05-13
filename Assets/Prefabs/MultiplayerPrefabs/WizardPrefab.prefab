@@ -300,8 +300,8 @@ MonoBehaviour:
     Orange: 0
     Purple: 0
   capabilities:
-    DigHole: 1
-    MoveCrate: 1
+    DigHole: 0
+    MoveCrate: 0
     BreakIce: 1
     ShootArrow: 0
 --- !u!114 &2918542253152448371

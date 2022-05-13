@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    void OnTriggerEnter2D (Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("RoomSpawn")){
+        if (other.CompareTag("RoomSpawn"))
+        {
             Destroy(other.gameObject);
         }
-        
+
     }
 }
