@@ -5,23 +5,26 @@ using Mirror;
 
 public class NetworkedRoom : NetworkBehaviour
 {
-    void Awake()
+    public void Awake()
     {
-        spawnChildPrefabs(transform.root);
+        CmdSpawnChildPrefabs(transform.root);
     }
 
-    void spawnChildPrefabs(Transform trans)
+    [Server]
+    public void CmdSpawnChildPrefabs(Transform trans)
     {
-        Debug.Log(trans.name);
+        if (trans.gameObject.GetComponent<NetworkIdentity>() == null)
+        {
+            return;
+        }
         NetworkServer.Spawn(trans.gameObject);
-        if (trans.childCount == 0 || trans.gameObject.GetComponent<NetworkIdentity>() == null)
+        if (trans.childCount == 0)
         {
             return;
         }
         foreach (Transform childTran in trans)
         {
-            //Destroy(childTran);
-            spawnChildPrefabs(childTran);
+            CmdSpawnChildPrefabs(childTran);
         }
     }
 }

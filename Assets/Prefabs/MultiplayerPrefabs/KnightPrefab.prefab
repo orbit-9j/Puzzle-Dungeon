@@ -581,7 +581,7 @@ MonoBehaviour:
   virtualCamera: {fileID: 0}
   interactText: {fileID: 5100168007634076609}
   uiCanvas: {fileID: 8394828152796686736}
-  arrow: {fileID: 0}
+  arrow: {fileID: 621117523427102152, guid: 14b61dfce93648c4398988fe4b70cdd3, type: 3}
   topOnly: {fileID: 6581531172128196547}
   topLeft: {fileID: 6107542760430331197}
   topRight: {fileID: 2949191530235788651}
