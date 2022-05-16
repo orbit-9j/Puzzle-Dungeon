@@ -156,3 +156,4 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  networkManager: {fileID: 1993603376033353586, guid: ede8df2b7fa3e1145bc74acf8a06ddcc, type: 3}

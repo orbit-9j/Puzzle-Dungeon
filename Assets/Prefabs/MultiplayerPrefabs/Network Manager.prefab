@@ -54,7 +54,7 @@ MonoBehaviour:
   autoStartServerBuild: 1
   serverTickRate: 30
   offlineScene: Assets/Scenes/Menu/GameSelect.unity
-  onlineScene: Assets/Scenes/Level.unity
+  onlineScene: Assets/Scenes/MultiplayerScenes/PreGeneratedLevel.unity
   transport: {fileID: 1993603376033353587}
   networkAddress: localhost
   maxConnections: 4

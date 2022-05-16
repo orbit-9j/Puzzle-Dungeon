@@ -893,7 +893,7 @@ MonoBehaviour:
   networkAddress: localhost
   maxConnections: 8
   authenticator: {fileID: 0}
-  playerPrefab: {fileID: 3570833230811211389, guid: 1d9687fdaa2cb9249a9304c8f95bc179, type: 3}
+  playerPrefab: {fileID: 2215562171987304828, guid: 6cc2ff5a024cbc540bd098da84884d67, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 1
   spawnPrefabs:

@@ -57,7 +57,7 @@ public class OurNetworkManager : NetworkManager
     }
 
     //ideally, delete the prefab from the list if a player disconnects so they can become that class again when they reconnect. but it doesn't work 
-
+    //use base. whatever, maybe that will work
     /*  public override void OnStopClient(){
          GameObject localPlayer = NetworkClient.localPlayer.gameObject;
          players.Remove(localPlayer);
