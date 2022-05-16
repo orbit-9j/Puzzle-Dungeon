@@ -7,28 +7,24 @@ using Mirror;
 
 public class RoomTemplates : MonoBehaviour
 {
+    //spawnable rooms
     public GameObject[] bottomRooms;
     public GameObject[] topRooms;
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
-    /* public GameObject[] topRooms;
-    public GameObject[] bottomRooms;
-    public GameObject[] rightRooms;
-    public GameObject[] leftRooms; */
-
     public GameObject rightRoomExit;
     public GameObject leftRoomExit;
     public GameObject topRoomExit;
     public GameObject bottomRoomExit;
     public GameObject exitRoom;
 
-    public GameObject closedWall; //supposed to prevent rooms with open exits, but it probably doesn't work
+    public GameObject closedWall; //supposed to prevent rooms with open exits, but it doesn't work
 
-    public List<GameObject> rooms;
+    public List<GameObject> rooms; //list of rooms spawned in order
 
     private bool spawnedExit;
 
-    public float waitTime = 5f;
+    public float waitTime = 6f; //waits until all rooms have generated to generate exit
 
 
     void Update()
@@ -39,7 +35,7 @@ public class RoomTemplates : MonoBehaviour
             {
                 if (i == rooms.Count - 1)
                 {
-                    //this approach doesn't always work because sometimes the last room in the list is not the last room. i don't wanna rewrite the algorithm so oh well ig lol
+                    //this approach doesn't always work because sometimes the last room in the list is not the last room. algorithm rewrite required
                     Transform SpawnL = rooms[i].transform.Find("SpawnPoint L");
                     Transform SpawnR = rooms[i].transform.Find("SpawnPoint R");
                     Transform SpawnT = rooms[i].transform.Find("SpawnPoint T");
@@ -83,32 +79,4 @@ public class RoomTemplates : MonoBehaviour
             waitTime -= Time.deltaTime;
         }
     }
-
-
-    /* public float waitTime;
-
-    private bool spawnedDoor;
-
-    public GameObject door;
-
-
-    void Update()
-    {
-        if (waitTime <= 0 && spawnedDoor == false)
-        {
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                if (i == rooms.Count - 1)
-                {
-                    Instantiate(door, rooms[i].transform.position, Quaternion.identity);
-                }
-
-                spawnedDoor = true;
-            }
-        }
-        else
-        {
-            waitTime -= Time.deltaTime;
-        }
-    } */
 }

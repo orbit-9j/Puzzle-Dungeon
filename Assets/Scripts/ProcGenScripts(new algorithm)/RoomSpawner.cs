@@ -12,7 +12,7 @@ public class RoomSpawner : MonoBehaviour
     private RoomTemplates templates;
     private int rand;
     private bool spawned = false;
-    public float waitTime = 4f;
+    public float waitTime = 5f; //keeping the wait time long allows all rooms to spawn before deleting spawn points, so rooms don't spawn on top of each other. a lazy way of doing this since some machines run slower than others.
 
     void Start()
     {
@@ -51,7 +51,7 @@ public class RoomSpawner : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("RoomSpawn") /* && other.GetComponent<RoomSpawner>().spawned == true */)
+        if (other.CompareTag("RoomSpawn"))
         {
             if (other.GetComponent<RoomSpawner>().spawned == false && spawned == false)
             {

@@ -6379,26 +6379,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4830962033749370506, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-      propertyPath: doorOpen
-      value: 
-      objectReference: {fileID: 21300000, guid: 4bbfda7cf3bc0734992e3032fdc81b92, type: 3}
-    - target: {fileID: 4830962033749370506, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-      propertyPath: doorClosed
-      value: 
-      objectReference: {fileID: -5147227984005350219, guid: 3390026e866d9ef4a8327c5a126ed06d, type: 3}
-    - target: {fileID: 4830962033749370507, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -5147227984005350219, guid: 3390026e866d9ef4a8327c5a126ed06d, type: 3}
-    - target: {fileID: 4830962033749370507, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-      propertyPath: m_SortingLayer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4830962033749370507, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1743996839
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7953b7cc18fee42aa35ee294292e70, type: 3}
 --- !u!4 &2730731168508763006 stripped

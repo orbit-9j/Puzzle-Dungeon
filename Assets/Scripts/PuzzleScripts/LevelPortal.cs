@@ -25,7 +25,7 @@ public class LevelPortal : Collidable
             //exits the game as there is currently only 1 level
             /* SceneManager.LoadScene("GameSelect"); */
 
-            //tried to disconnect it
+            //tried to disconnect it, failed
             /* if (networkManager.mode == NetworkManagerMode.Host)
             {
                 networkManager.StopHost();

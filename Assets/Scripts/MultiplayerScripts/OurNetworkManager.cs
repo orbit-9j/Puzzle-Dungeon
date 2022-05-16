@@ -6,11 +6,9 @@ using Mirror;
 public class OurNetworkManager : NetworkManager
 {
     public Transform playerSpawn;
-    //private GameObject player;
     private List<GameObject> instantiatedPlayers = new List<GameObject>(); //list of player classes already instantiated
     public List<GameObject> availablePlayers = new List<GameObject>(); //must match the classes in registered objects
 
-    //spawnPrefabs list
     public override void Start()
     {
         base.Start();
@@ -38,26 +36,18 @@ public class OurNetworkManager : NetworkManager
                     instantiatedPlayers.Add(availablePlayers[i]);
                     break;
                 }
-                /* playerPrefab = availablePlayers[i];
-                instantiatedPlayers.Add(availablePlayers[i]);
-                break; */
             }
             else
             {
                 Debug.Log("player class already exists, spawning different one");
             }
         }
-
-        //working code
-        /* GameObject player = Instantiate(spawnPrefabs[0], playerSpawn.position, playerSpawn.rotation);
-        NetworkServer.AddPlayerForConnection(conn, player); */
-
         GameObject player = Instantiate(playerPrefab, playerSpawn.position, playerSpawn.rotation);
         NetworkServer.AddPlayerForConnection(conn, player);
     }
 
     //ideally, delete the prefab from the list if a player disconnects so they can become that class again when they reconnect. but it doesn't work 
-    //use base. whatever, maybe that will work
+    //use base.___ ,maybe that will work?
     /*  public override void OnStopClient(){
          GameObject localPlayer = NetworkClient.localPlayer.gameObject;
          players.Remove(localPlayer);
